@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-10-07T05:20:49.087005+00:00",
+  "decision": null,
+  "error_code": null,
+  "events": [
+    {
+      "created_at": "2026-10-07T05:20:49.087154+00:00",
+      "detail": {
+        "synthetic": true
+      },
+      "stage": "submitted"
+    },
+    {
+      "created_at": "2026-10-07T05:20:50.308264+00:00",
+      "detail": {
+        "issues": "[{\"code\":\"skill_schema\",\"reason\":\"합성 스킬 원장 검수 규칙과 맞지 않는 행입니다.\",\"row\":1},{\"code\":\"four_worker_count\",\"reason\":\"Exactly four valid synthetic workers are required.\",\"row\":0}]",
+        "source_sha256": "4da34c3b4961a804782a77fd1b65f9725bb55cc63eee11e6b86f47e22a9a74b2",
+        "state": "blocked"
+      },
+      "stage": "blocked"
+    }
+  ],
+  "experiment_id": null,
+  "id": "213ff655c0114ca4bd1baac5225abbaf",
+  "issues": [
+    {
+      "code": "skill_schema",
+      "reason": "합성 스킬 원장 검수 규칙과 맞지 않는 행입니다.",
+      "row": 1
+    },
+    {
+      "code": "four_worker_count",
+      "reason": "Exactly four valid synthetic workers are required.",
+      "row": 0
+    }
+  ],
+  "n8n_execution_id": null,
+  "request": "수요 1.0배, 로봇 자동화와 검사 교육을 함께 비교해 주세요.",
+  "request_id": "213ff655c0114ca4bd1baac5225abbaf",
+  "result": null,
+  "source_sha256": "4da34c3b4961a804782a77fd1b65f9725bb55cc63eee11e6b86f47e22a9a74b2",
+  "state": "blocked",
+  "status": "blocked",
+  "summary": null,
+  "synthetic": true,
+  "training_plan": null,
+  "training_plan_reason": null
+}

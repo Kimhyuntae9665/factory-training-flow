@@ -1,0 +1,35 @@
+{
+  "python": {
+    "name": "Python",
+    "path": "python.svg",
+    "sha256": "baec8662a1461c2cacc326b54d2727cb2f1ce07ba02d00f5b826d035104f649f",
+    "source": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg",
+    "license_note": "PSF unaltered standalone two-snakes mark; nominative Python identification. https://www.python.org/psf/trademarks-faq/",
+    "retrieved_at": "2026-10-07"
+  },
+  "qwen": {
+    "name": "Qwen2.5",
+    "path": "qwen.png",
+    "sha256": "4a36e944efd4d11761ba3a98518493cb078364939ba0899d7bdd58429a454ae5",
+    "source": "https://qwenlm.github.io/img/logo.png",
+    "license_note": "Official Qwen family symbol, reused to identify actual Qwen2.5 model. Trademark retained; no endorsement or separate artwork license asserted.",
+    "retrieved_at": "2026-10-07"
+  },
+  "sqlite": {
+    "name": "SQLite",
+    "path": "sqlite.gif",
+    "sha256": "c8dcab915b60672682f3a5cd85ba82e2ea059f881e26593aa3ff9cd560fda13a",
+    "source": "https://sqlite.org/src/raw/art/icon-243x273.gif?ci=trunk",
+    "license_note": "Official standalone symbol; SQLite trademark retained. Code public-domain status is not asserted for artwork.",
+    "retrieved_at": "2026-10-07"
+  },
+  "n8n": {
+    "name": "n8n",
+    "path": "n8n.svg",
+    "source": "https://raw.githubusercontent.com/n8n-io/n8n/n8n%402.42.3/packages/frontend/%40n8n/design-system/src/components/N8nLogo/logo-icon.svg",
+    "revision": "n8n@2.42.3",
+    "sha256": "fea58f324bd105a5d8a054e6cb80940c1e63fc51b606b780b73e9187e5bfdfa9",
+    "license_note": "Official unaltered standalone icon; Pink retained. Nominative technology identification only, no endorsement. n8n repository sustainable-use license and brand guidelines https://n8n.io/brandguidelines/",
+    "retrieved_at": "2026-10-07"
+  }
+}

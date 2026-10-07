@@ -1,0 +1,33 @@
+# Local Python / npm runtime
+.venv/
+.runtime/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# Model weights and download cache
+models/
+*.safetensors
+*.bin
+.cache/
+# Execution state can contain signed n8n Wait URLs
+.n8n/
+state/
+*.sqlite*
+*.db
+*.db-*
+*.log
+# Credentials / machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+cookies*.json
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/

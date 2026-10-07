@@ -1,0 +1,14 @@
+* text=auto
+*.py text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+*.pdf binary
+# Preserve exact bytes for recorded source / vendor / logo hashes
+simulator/data/workforce.json -text
+assets/* -text
+web/vendor/* -text
+simulator/web/vendor/* -text

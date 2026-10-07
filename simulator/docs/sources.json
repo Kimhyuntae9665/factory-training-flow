@@ -1,0 +1,65 @@
+[
+  {
+    "source_id": "jd_128767",
+    "title": "2026 원익그룹 신입공채 - 원익홀딩스 경영지원 인사 HR Data & AI 활용 방안 기획 담당",
+    "url": "https://wonik.recruiter.co.kr/career/jobs/128767",
+    "checked_at": "2026-10-07 KST",
+    "status": "official ATS posting rechecked; umbrella recruitment posting; visible page title and posting status checked, JD details confirmed from the official posting imagery in the current job-fit research",
+    "claim_scope": "The role asks for HR AI/data task discovery; LLM/generative AI/automation solution introduction and management; collection, cleansing, analysis and database organization of recruiting, turnover and performance data. This is a role requirement, not evidence that the company has an internal HR AI project.",
+    "evidence_level": "official_job_posting"
+  },
+  {
+    "source_id": "robotics_digital_twin",
+    "title": "원익로보틱스 적용분야 - 디지털 트윈",
+    "url": "https://wonikrobotics.com/kr/sub/application/robotAutomation/digital_twin.php",
+    "checked_at": "2026-10-07 KST",
+    "status": "official subsidiary page opened and body/reference checked; publication date not displayed",
+    "claim_scope": "Page describes digital twin use for simulation, monitoring and bottleneck optimization, and a battery-tray logistics reference analyzing main-conveyor segment throughput, identifying bottlenecks, and optimizing line speed/diverter conditions. It does not identify a customer, date, Wonik Holdings deployment, or HR use case.",
+    "evidence_level": "official_subsidiary_public_application_reference"
+  },
+  {
+    "source_id": "holdings_half_year_2026",
+    "title": "원익홀딩스 2026 반기보고서 (2026.06)",
+    "url": "https://opendart.fss.or.kr/xbrl/viewer/main.do?rcpNo=20260814003849",
+    "checked_at": "2026-10-07 KST",
+    "status": "official DART filing opened; submitted 2026-08-14; report's R&D list reviewed",
+    "claim_scope": "Under business contents / R&D activities / Wonik Holdings semiconductor-equipment segment, the report lists 2026 Mixing System 2.0 development and charging-automation unmanned Pilot equipment development; the latter's stated development intent includes transfer-robot integration with a gas cabinet and AI/automation application. These are listed development projects and expected benefits; the report does not establish completion, launch, customer order, or operational deployment.",
+    "evidence_level": "official_regulatory_filing_project_listed_not_completion"
+  },
+  {
+    "source_id": "FACTORY-IMPL-01",
+    "title": "Factory Scenario Lab implementation files (planner.py, engine.py, server.py)",
+    "url": "../planner.py",
+    "checked_at": "2026-10-07 KST",
+    "status": "local implementation inspected; related engine.py and server.py are adjacent files under work/factory",
+    "claim_scope": "Inspected parser, real Qwen bounded label scoring, SimPy, four-row synthetic workforce quality checks and derived capacity, transactional SQLite payload plus original workforce snapshot. No real employee records, HR operations or industrial robot control.",
+    "evidence_level": "inspected_project_source_code"
+  },
+  {
+    "source_id": "SIM-01",
+    "title": "SimPy 4.1.1 Documentation",
+    "url": "https://simpy.readthedocs.io/en/4.1.1/",
+    "checked_at": "2026-10-07 KST",
+    "status": "official versioned project documentation checked; project requirements pin simpy==4.1.1",
+    "claim_scope": "Documents the discrete-event simulation library used by the project. It supports identification of the simulation technology, not validation of the synthetic process assumptions or any real-world outcome.",
+    "evidence_level": "official_technical_documentation"
+  },
+  {
+    "source_id": "MODEL-01",
+    "title": "Qwen2.5-1.5B-Instruct model card",
+    "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "checked_at": "2026-10-07 KST",
+    "status": "Downloaded pinned model files; local inference evaluation reported separately",
+    "claim_scope": "Actual configured local model for bounded candidate-label scoring. Earlier 0.5B failed evaluations are preserved; model card is not project performance evidence.",
+    "evidence_level": "official_model_card"
+  },
+  {
+    "source_id": "visual_inspiration",
+    "title": "Igor Kulakov MicroFactory concept",
+    "url": "https://x.com/ihorbeaver/status/2107210345051988131",
+    "checked_at": "2026-10-07 KST",
+    "status": "Post text and playing video frames viewed in browser",
+    "claim_scope": "Visual inspiration only; no copied footage/assets or claim of self-replicating factories",
+    "evidence_level": "public_reference"
+  }
+]

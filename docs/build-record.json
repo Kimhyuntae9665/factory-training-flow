@@ -1,0 +1,88 @@
+{
+  "version": "Factory Training Flow v2",
+  "completed": "2026-10-07",
+  "existing_factory_unchanged": true,
+  "n8n_version": "2.42.3",
+  "real_n8n_executions": 3,
+  "real_qwen_calls": 2,
+  "unit_tests": 21,
+  "synthetic": true,
+  "actual_hr_operations": false,
+  "n8n_company_adoption": "unverified",
+  "completed_record_restart": true,
+  "active_record_automatic_recovery": "not guaranteed; n8noperatorretryafterfinalizeexhaustion",
+  "no_external_messages_or_publication": true,
+  "no_owner_account_created": true,
+  "prose": {
+    "before": 841,
+    "after": 837,
+    "paragraphs": 7,
+    "sentences": 17,
+    "change_rate": 0.0024,
+    "gate_exit_code": 0
+  },
+  "portfolio": {
+    "pages": 3,
+    "selectable_text": true,
+    "links": 3,
+    "screenshots": [
+      {
+        "page": 1,
+        "file": "replay.png",
+        "outer": [
+          34,
+          121,
+          494,
+          344.0
+        ],
+        "padding_pt": 7,
+        "four_side_border_pt": 1.6
+      },
+      {
+        "page": 3,
+        "file": "approved.png",
+        "outer": [
+          34,
+          121,
+          334,
+          327.1645569620253
+        ],
+        "padding_pt": 7,
+        "four_side_border_pt": 1.6
+      }
+    ],
+    "unit_tests": 21,
+    "actual_n8n_executions": 3,
+    "actual_qwen_runs": 2,
+    "completed_records_restart": true,
+    "prose_route": "light",
+    "prose_change_rate": 0.0024,
+    "prose_gate": "OK golden PASS",
+    "prose_run": "2026-10-07-003-n8n",
+    "pdf_sha256": "140611ef90e8d5cfec5ff1c778309e88517e10c216836fa72f09fe330aa7da8e",
+    "visual_review": {
+      "passed": true,
+      "full_page": "all3 pages inspected",
+      "100_percent": "all3 final pages inspected; updatedpage1 re-rendered and inspected",
+      "screenshot_borders": "continuous navy all4 sides; external7pt padding; no overlap/crop; captions outside",
+      "logo_flow": "official standalone logos, names below cards, arrows avoid labels"
+    },
+    "KASA": "not an application or resume; project-specific case study has no award field",
+    "prose_chars": {
+      "before": 841,
+      "after": 837,
+      "paragraphs": 7,
+      "sentences": 17,
+      "change_rate": 0.0024,
+      "gate_exit_code": 0
+    },
+    "review_findings_closed": 3
+  },
+  "source_public_documents_reused": "same-session 2026-10-07 official job/company research",
+  "sources": [
+    "https://wonik.recruiter.co.kr/career/jobs/128767",
+    "https://wonikrobotics.com/kr/sub/application/robotAutomation/digital_twin.php",
+    "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.wait"
+  ],
+  "replay_same_job": true
+}

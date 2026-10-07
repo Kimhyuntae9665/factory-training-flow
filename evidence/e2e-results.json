@@ -1,0 +1,294 @@
+{
+  "passed": true,
+  "synthetic": true,
+  "actual_n8n": "2.42.3",
+  "actual_llm": true,
+  "cases": {
+    "approve": {
+      "id": "95e42f2ccb3b48e6aa6f5f6ca10ef3e9",
+      "education_plans": 1,
+      "before_approval_plans": 0,
+      "ui_decision": true
+    },
+    "reject": {
+      "id": "7a400ddec4e546d297f6a19d0847cc41",
+      "education_plans": 0,
+      "before_approval_plans": 0
+    },
+    "missing_fixture": {
+      "id": "213ff655c0114ca4bd1baac5225abbaf",
+      "education_plans": 0,
+      "llm_started": false
+    },
+    "duplicate_request": "same job; no extra n8n execution",
+    "duplicate_decision": "same persisted result; no extra plan",
+    "conflicting_request_and_decision": "HTTP409"
+  },
+  "n8n_wait_observed": [
+    {
+      "id": 1,
+      "status": "success",
+      "finished": 1,
+      "startedAt": "2026-10-07 05:17:30.830",
+      "stoppedAt": "2026-10-07 05:19:51.521",
+      "waitTill": null
+    },
+    {
+      "id": 2,
+      "status": "waiting",
+      "finished": 0,
+      "startedAt": "2026-10-07 05:20:35.694",
+      "stoppedAt": "2026-10-07 05:20:47.236",
+      "waitTill": "3000-01-01 00:00:00.000"
+    }
+  ],
+  "n8n_terminal_executions": [
+    {
+      "id": 1,
+      "status": "success",
+      "finished": 1,
+      "startedAt": "2026-10-07 05:17:30.830",
+      "stoppedAt": "2026-10-07 05:19:51.521",
+      "waitTill": null
+    },
+    {
+      "id": 2,
+      "status": "success",
+      "finished": 1,
+      "startedAt": "2026-10-07 05:20:35.694",
+      "stoppedAt": "2026-10-07 05:20:47.742",
+      "waitTill": null
+    },
+    {
+      "id": 3,
+      "status": "success",
+      "finished": 1,
+      "startedAt": "2026-10-07 05:20:50.171",
+      "stoppedAt": "2026-10-07 05:20:50.403",
+      "waitTill": null
+    }
+  ],
+  "model_runs": [
+    {
+      "request_id": "95e42f2ccb3b48e6aa6f5f6ca10ef3e9",
+      "plan": {
+        "interpretation": {
+          "allow_robot": true,
+          "allow_training": true,
+          "demand_multiplier": 1.0
+        },
+        "latency_ms": 121211.46,
+        "mode": "llm",
+        "model": {
+          "candidate_scores": {
+            "baseline": -3.06884,
+            "combined": 6.06677,
+            "robot": 2.92175,
+            "training": 2.2861
+          },
+          "device": "cpu",
+          "dtype": "torch.float32",
+          "method": "CPU constrained label scoring calibrated against a no-preference prompt",
+          "name": "Qwen/Qwen2.5-1.5B-Instruct",
+          "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+        },
+        "plan_id": "934d1807577e4427a75d0e58e7ec3403",
+        "rationale": [
+          "실제 로컬 Qwen이 자연어 선호와 후보 설명을 읽고 대안 라벨을 선택했습니다.",
+          "수요·금지 조건은 별도 명시적 파서로 검증했으며 공정 수치는 모델이 생성하지 않습니다."
+        ],
+        "raw_output": "D",
+        "request": "수요 1.0배, 인원 추가 없이 로봇 자동화와 검사 교육 대안을 함께 비교해 주세요.",
+        "selected_focus_id": "combined",
+        "selected_ids": [
+          "robot",
+          "training",
+          "combined"
+        ],
+        "source_ids": [
+          "SIM-01",
+          "MODEL-01"
+        ],
+        "warnings": [
+          "합성 공정·가상 사전교육이며 실제 공장 제어 또는 교육 효과 검증 아님",
+          "작은 로컬 모델의 선호 해석은 틀릴 수 있어 선택 결과 확인 필요"
+        ]
+      },
+      "summary": {
+        "after": {
+          "completed": 58.3,
+          "manual_interventions": 64.7,
+          "mean_lead_time_min": 20.4153,
+          "mean_wait_min": 0.5538,
+          "released": 60.7,
+          "rework_started": 5,
+          "skill_coverage_pct": 50.0,
+          "throughput_per_hour": 7.2875,
+          "total_worker_hours": 32,
+          "training_hours": 8,
+          "utilization": {
+            "assembly": 66.8511,
+            "inspection": 76.9344,
+            "transport": 25.1654
+          },
+          "wip_end": 2.4
+        },
+        "before": {
+          "completed": 36.1,
+          "manual_interventions": 150,
+          "mean_lead_time_min": 113.4132,
+          "mean_wait_min": 84.8604,
+          "released": 60.7,
+          "rework_started": 2.9,
+          "skill_coverage_pct": 25.0,
+          "throughput_per_hour": 4.5125,
+          "total_worker_hours": 32,
+          "training_hours": 0,
+          "utilization": {
+            "assembly": 98.7561,
+            "inspection": 96.5645,
+            "transport": 75.1719
+          },
+          "wip_end": 24.6
+        },
+        "delta": {
+          "completed": 22.2,
+          "mean_wait_min": -84.3066,
+          "skill_coverage_pct": 25.0,
+          "wip_end": -22.2
+        },
+        "explanation": "계산된 10개 seed 평균 완료 수 36.1 → 58.3, 검사 자격 커버리지 25.0% → 50.0%. 이 설명은 SimPy 계산값으로 작성한 정형 요약이며 LLM 자유 생성 문장이 아닙니다.",
+        "recommended_scenario_id": "combined",
+        "selected_focus_id": "combined",
+        "training_required": true
+      }
+    },
+    {
+      "request_id": "7a400ddec4e546d297f6a19d0847cc41",
+      "plan": {
+        "interpretation": {
+          "allow_robot": true,
+          "allow_training": true,
+          "demand_multiplier": 1.0
+        },
+        "latency_ms": 10846.19,
+        "mode": "llm",
+        "model": {
+          "candidate_scores": {
+            "baseline": -2.94404,
+            "combined": 5.56042,
+            "robot": 3.09072,
+            "training": 2.5856
+          },
+          "device": "cpu",
+          "dtype": "torch.float32",
+          "method": "CPU constrained label scoring calibrated against a no-preference prompt",
+          "name": "Qwen/Qwen2.5-1.5B-Instruct",
+          "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+        },
+        "plan_id": "ceaf5b806c57470c8be6a2b57885a755",
+        "rationale": [
+          "실제 로컬 Qwen이 자연어 선호와 후보 설명을 읽고 대안 라벨을 선택했습니다.",
+          "수요·금지 조건은 별도 명시적 파서로 검증했으며 공정 수치는 모델이 생성하지 않습니다."
+        ],
+        "raw_output": "D",
+        "request": "수요 1.0배, 로봇 자동화와 검사 교육을 함께 비교해 주세요.",
+        "selected_focus_id": "combined",
+        "selected_ids": [
+          "robot",
+          "training",
+          "combined"
+        ],
+        "source_ids": [
+          "SIM-01",
+          "MODEL-01"
+        ],
+        "warnings": [
+          "합성 공정·가상 사전교육이며 실제 공장 제어 또는 교육 효과 검증 아님",
+          "작은 로컬 모델의 선호 해석은 틀릴 수 있어 선택 결과 확인 필요"
+        ]
+      },
+      "summary": {
+        "after": {
+          "completed": 58.3,
+          "manual_interventions": 64.7,
+          "mean_lead_time_min": 20.4153,
+          "mean_wait_min": 0.5538,
+          "released": 60.7,
+          "rework_started": 5,
+          "skill_coverage_pct": 50.0,
+          "throughput_per_hour": 7.2875,
+          "total_worker_hours": 32,
+          "training_hours": 8,
+          "utilization": {
+            "assembly": 66.8511,
+            "inspection": 76.9344,
+            "transport": 25.1654
+          },
+          "wip_end": 2.4
+        },
+        "before": {
+          "completed": 36.1,
+          "manual_interventions": 150,
+          "mean_lead_time_min": 113.4132,
+          "mean_wait_min": 84.8604,
+          "released": 60.7,
+          "rework_started": 2.9,
+          "skill_coverage_pct": 25.0,
+          "throughput_per_hour": 4.5125,
+          "total_worker_hours": 32,
+          "training_hours": 0,
+          "utilization": {
+            "assembly": 98.7561,
+            "inspection": 96.5645,
+            "transport": 75.1719
+          },
+          "wip_end": 24.6
+        },
+        "delta": {
+          "completed": 22.2,
+          "mean_wait_min": -84.3066,
+          "skill_coverage_pct": 25.0,
+          "wip_end": -22.2
+        },
+        "explanation": "계산된 10개 seed 평균 완료 수 36.1 → 58.3, 검사 자격 커버리지 25.0% → 50.0%. 이 설명은 SimPy 계산값으로 작성한 정형 요약이며 LLM 자유 생성 문장이 아닙니다.",
+        "recommended_scenario_id": "combined",
+        "selected_focus_id": "combined",
+        "training_required": true
+      }
+    }
+  ],
+  "plan_rows": {
+    "95e42f2ccb3b48e6aa6f5f6ca10ef3e9": 1
+  },
+  "external_contacts": false,
+  "approval_operator": "automated synthetic demo reviewer; no real HR decision",
+  "completed_record_restart": {
+    "passed": true,
+    "jobs": 3,
+    "states": [
+      "approved",
+      "blocked",
+      "rejected"
+    ],
+    "education_plan_rows": 1,
+    "scope": "completed jobs only; active-run recovery not asserted"
+  },
+  "replay_ui": {
+    "passed": true,
+    "job_id": "95e42f2ccb3b48e6aa6f5f6ca10ef3e9",
+    "n8n_execution_id": "1",
+    "source": "persisted /api/job result, no new model request",
+    "timeline_seed": 0,
+    "metrics_seed_count": 10,
+    "baseline_observed": {
+      "completed": 36.1,
+      "skill_coverage_pct": 25
+    },
+    "combined_observed": {
+      "completed": 58.3,
+      "skill_coverage_pct": 50
+    },
+    "controls": "scenario select, pause/play, advancing clock; actual WebGL image observed"
+  }
+}

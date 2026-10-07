@@ -1,0 +1,9 @@
+{
+  "scope": "adapter unit tests; model selection mocked, real SimPy; not actual-Qwen E2E",
+  "tests": 21,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "actual_model_loaded": false,
+  "external_contacts": false
+}

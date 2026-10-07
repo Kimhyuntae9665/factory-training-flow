@@ -1,0 +1,110 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "actual_cpu_inference": true,
+  "rounds": [
+    {
+      "method": "Initial English option descriptions, uncalibrated next-token labels",
+      "cases": [
+        {
+          "request": "로봇 자동화를 우선하고 운반과 조립 속도를 개선하고 싶습니다",
+          "expected": "robot",
+          "observed": "robot",
+          "raw": "B",
+          "latency_ms": 44009.76,
+          "passed": true
+        },
+        {
+          "request": "설비 자동화보다 직원 역량과 검사 자격 교육을 우선하고 싶습니다",
+          "expected": "training",
+          "observed": "robot",
+          "raw": "B",
+          "latency_ms": 3978.55,
+          "passed": false
+        }
+      ],
+      "passed_count": 1,
+      "case_count": 2
+    },
+    {
+      "method": "Bilingual options and four few-shot classification examples, uncalibrated labels",
+      "cases": [
+        {
+          "request": "로봇 자동화를 우선하고 운반과 조립 속도를 개선하고 싶습니다",
+          "expected": "robot",
+          "observed": "training",
+          "raw": "C",
+          "latency_ms": 23456.81,
+          "passed": false
+        },
+        {
+          "request": "설비 자동화보다 직원 역량과 검사 자격 교육을 우선하고 싶습니다",
+          "expected": "training",
+          "observed": "training",
+          "raw": "C",
+          "latency_ms": 4993.1,
+          "passed": true
+        },
+        {
+          "request": "로봇 자동화와 직원 교육을 함께 적용하고 싶습니다",
+          "expected": "combined",
+          "observed": "training",
+          "raw": "C",
+          "latency_ms": 4904.33,
+          "passed": false
+        },
+        {
+          "request": "현재 공정을 그대로 유지하고 싶습니다",
+          "expected": "baseline",
+          "observed": "baseline",
+          "raw": "A",
+          "latency_ms": 4609.4,
+          "passed": true
+        }
+      ],
+      "passed_count": 2,
+      "case_count": 4
+    },
+    {
+      "method": "Repeated-option few-shot prompt with neutral label-logit calibration",
+      "cases": [
+        {
+          "request": "로봇 자동화를 우선하고 운반과 조립 속도를 개선하고 싶습니다",
+          "expected": "robot",
+          "observed": "robot",
+          "raw": "B",
+          "latency_ms": 24616.28,
+          "passed": true
+        },
+        {
+          "request": "설비 자동화보다 직원 역량과 검사 자격 교육을 우선하고 싶습니다",
+          "expected": "training",
+          "observed": "training",
+          "raw": "C",
+          "latency_ms": 7878.43,
+          "passed": true
+        },
+        {
+          "request": "주문량이 20% 늘었습니다. 인원 추가 없이 로봇 자동화와 검사 교육 대안을 비교해 주세요.",
+          "expected": "combined",
+          "observed": "training",
+          "raw": "C",
+          "latency_ms": 11820.13,
+          "passed": false
+        },
+        {
+          "request": "현재 공정을 그대로 유지하고 싶습니다",
+          "expected": "baseline",
+          "observed": "baseline",
+          "raw": "A",
+          "latency_ms": 17866.43,
+          "passed": true
+        }
+      ],
+      "passed_count": 3,
+      "case_count": 4
+    }
+  ],
+  "diagnosis": "Initial constrained-label scoring exhibited option-token prior bias. These failures are retained; calibration and the complete later paraphrased evaluation must be assessed separately.",
+  "source": "Actual planner.plan CPU inference terminal outputs captured during implementation; timings include import/load on each process's first call."
+}

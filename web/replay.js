@@ -1,0 +1,9 @@
+import {FactoryView} from './factory-view.js';
+const $=id=>document.getElementById(id);
+let exp=null,view=null,time=90,last=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+const names={baseline:'기준 공정',robot:'AMR·로봇',training:'검사 교육',combined:'자동화 + 교육'};
+function select(){const s=exp?.scenarios.find(x=>x.id===$('scenario').value);if(!s)return;view.setScenario(s);time=90;$('metric').textContent=`10회 평균 완료 ${s.metrics.completed.toFixed(1)}개 · 검사 자격 ${s.metrics.skill_coverage_pct}% · 교육 가정 ${s.metrics.training_hours}시간`;}
+$('scenario').onchange=select;$('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'일시정지':'재생';};$('clock').oninput=()=>{time=Number($('clock').value);};
+function frame(ms){const dt=Math.min((ms-last)/1000,.1);last=ms;if(playing&&exp)time=(time+dt*18)%480;$('clock').value=time;$('clock-label').textContent=`${Math.round(time)} / 480분`;view?.render(time);requestAnimationFrame(frame);}
+async function init(){try{const id=new URLSearchParams(location.hash.slice(1)).get('id');if(!/^[0-9a-f]{32}$/.test(id||''))throw Error('검토 포털에서 결과가 있는 요청의 공장 재생 링크를 열어 주세요.');const r=await fetch('/api/job?id='+encodeURIComponent(id));const job=await r.json();if(!r.ok||!job.result)throw Error('이 요청에는 저장된 공정 비교가 없습니다.');exp=job.result;view=new FactoryView($('scene'));$('request-text').textContent=job.request;for(const s of exp.scenarios){const o=document.createElement('option');o.value=s.id;o.textContent=names[s.id]||s.name;$('scenario').append(o);}$('scenario').value=exp.recommendation.scenario_id;select();$('state').textContent='요청 '+job.id+' · '+job.state;$('execution').textContent='n8n 실행 ID '+(job.n8n_execution_id||'—');if(!playing)$('play').textContent='재생';requestAnimationFrame(frame);}catch(e){$('error').textContent=e.message;}}
+init();

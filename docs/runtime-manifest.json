@@ -1,0 +1,14 @@
+{
+  "node": "v24.21.0",
+  "n8n": "2.42.3",
+  "node_archive_sha256": "158f7685b44de51f6c0df1d153526cbcd3e1bc739a8dfc607721cef75de9e541",
+  "source": "https://nodejs.org/dist/v24.21.0/node-v24.21.0-win-x64.zip",
+  "official_sha256_verified": true,
+  "python": "3.13.7",
+  "python_packages": {
+    "torch": "2.6.0",
+    "transformers": "4.49.0",
+    "simpy": "4.1.1",
+    "huggingface-hub": "0.29.1"
+  }
+}

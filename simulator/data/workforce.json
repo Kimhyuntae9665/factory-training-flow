@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "snapshot": "factory-workforce-v1",
+  "records": [
+    {"id": "W01", "skills": {"transport": true, "assembly": false, "inspection": false}, "inspection_training_eligible": false, "training_hours": 0},
+    {"id": "W02", "skills": {"transport": false, "assembly": true, "inspection": false}, "inspection_training_eligible": false, "training_hours": 0},
+    {"id": "W03", "skills": {"transport": false, "assembly": false, "inspection": true}, "inspection_training_eligible": false, "training_hours": 0},
+    {"id": "W04", "skills": {"transport": false, "assembly": false, "inspection": false}, "inspection_training_eligible": true, "training_hours": 8}
+  ],
+  "assumptions": "완전 합성 작업자4명. W04의 사전교육8시간 후 검사 자격 취득을 가정하며 실제 사람·교육 효과·채용 판단을 뜻하지 않음."
+}

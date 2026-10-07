@@ -1,0 +1,54 @@
+{
+  "title": "Factory Training Flow",
+  "status": "implemented",
+  "basis": "workflow.json, adapter.py, simulator/planner.py and engine.py inspected",
+  "description": "n8n -> Python adapter -> actual Qwen selection -> Python SimPy calculation -> SQLite persistence. Wait resumes on locally persisted human demo decision. All data synthetic.",
+  "nodes": [
+    {
+      "id": "n8n",
+      "asset": "n8n",
+      "x": 55,
+      "y": 170
+    },
+    {
+      "id": "python",
+      "asset": "python",
+      "x": 345,
+      "y": 170
+    },
+    {
+      "id": "qwen",
+      "asset": "qwen",
+      "x": 635,
+      "y": 30
+    },
+    {
+      "id": "sqlite",
+      "asset": "sqlite",
+      "x": 930,
+      "y": 170
+    }
+  ],
+  "edges": [
+    {
+      "source": "n8n",
+      "target": "python"
+    },
+    {
+      "source": "python",
+      "target": "qwen"
+    },
+    {
+      "source": "qwen",
+      "target": "python"
+    },
+    {
+      "source": "python",
+      "target": "sqlite"
+    },
+    {
+      "source": "python",
+      "target": "n8n"
+    }
+  ]
+}

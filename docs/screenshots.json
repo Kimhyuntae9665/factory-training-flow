@@ -1,0 +1,75 @@
+{
+  "synthetic": true,
+  "screenshots": [
+    {
+      "file": "evidence/screens/waiting.png",
+      "capture": "2026-10-07 original actual waiting state before approval; preserved capture",
+      "image_size": [
+        1288,
+        1336
+      ],
+      "border": "original outside border preserved",
+      "sha256": "1f38d4e50848effdd8da1bf336900dfc7e42654745ce9730db210bd4fe8015aa"
+    },
+    {
+      "file": "evidence/screens/approved.png",
+      "capture": "2026-10-07 public preparation; persisted actual job reopened",
+      "image_size": [
+        1288,
+        1364
+      ],
+      "border": "12px outside all four edges; no UI contents edited",
+      "sha256": "11fb199fd90c92ddc7fc634f58b84f6f9cbcb3e2b74bb0a1716408d6dd50d865"
+    },
+    {
+      "file": "evidence/screens/rejected.png",
+      "capture": "2026-10-07 public preparation; persisted actual job reopened",
+      "image_size": [
+        1288,
+        1364
+      ],
+      "border": "12px outside all four edges; no UI contents edited",
+      "sha256": "ac3d0874eb61ef1bcf5ad31a1335624c5e7576fa82615d8fc899c392baacf9ac"
+    },
+    {
+      "file": "evidence/screens/blocked.png",
+      "capture": "2026-10-07 public preparation; persisted actual job reopened",
+      "image_size": [
+        1288,
+        1360
+      ],
+      "border": "12px outside all four edges; no UI contents edited",
+      "sha256": "999078816ea558476cb777b0ff96e79193503b05a71d50e386a15bb40751acb0"
+    },
+    {
+      "file": "evidence/screens/events.png",
+      "capture": "2026-10-07 public preparation; persisted actual job reopened",
+      "image_size": [
+        1288,
+        2932
+      ],
+      "border": "12px outside all four edges; no UI contents edited",
+      "sha256": "490947bb63e0d1834722889ab82fe7ec05b1acada5bb34d53a9128a0be65fb80"
+    },
+    {
+      "file": "evidence/screens/replay-baseline.png",
+      "capture": "2026-10-07 public preparation; persisted actual job reopened",
+      "image_size": [
+        1288,
+        893
+      ],
+      "border": "12px outside all four edges; no UI contents edited",
+      "sha256": "09b7eb4f72a8d1a6535e8ba96fc9d839233d4a9dc88a58ebf40d6dea35a28d01"
+    },
+    {
+      "file": "evidence/screens/replay-combined.png",
+      "capture": "2026-10-07 public preparation; persisted actual job reopened",
+      "image_size": [
+        1288,
+        893
+      ],
+      "border": "12px outside all four edges; no UI contents edited",
+      "sha256": "92d6e98f89b4ce1e48a09093e788d4869b1b0944e7e9f199f45b809de2bf77b0"
+    }
+  ]
+}

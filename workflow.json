@@ -1,0 +1,352 @@
+{
+  "id": "FactoryTrainingLocal01",
+  "name": "Factory Training Flow | n8n × Qwen × SimPy",
+  "active": false,
+  "nodes": [
+    {
+      "id": "03ec4dbcf1845ed5931432cc0c36ddaa",
+      "name": "합성 요청 접수",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "factory-training",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "webhookId": "factory-training-local"
+    },
+    {
+      "id": "dcc4d0729333578fbf99d24104f48be2",
+      "name": "원장·요청 검수",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        230,
+        0
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8770/api/workflow/validate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Workflow-Client",
+              "value": "factory-training-local-v1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({request_id: $json.body.request_id}) }}",
+        "options": {
+          "timeout": 180000
+        }
+      }
+    },
+    {
+      "id": "c2484331ac2d5d1f8b108c2bdc634461",
+      "name": "검수 통과?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        460,
+        0
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "17e4ccfdf41a4ddaa073c4c80870e015",
+              "leftValue": "={{ $json.valid }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "eaf54292a40a55e6bc059aff08d6ae6c",
+      "name": "실제 Qwen·SimPy 비교",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        690,
+        -80
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8770/api/workflow/analyze",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Workflow-Client",
+              "value": "factory-training-local-v1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({request_id: $json.request_id}) }}",
+        "options": {
+          "timeout": 180000
+        }
+      }
+    },
+    {
+      "id": "96ee07e6509d5c8bad256d278f889206",
+      "name": "AI 비교 성공?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        920,
+        -80
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0daebe3709ba43408b7f9cb6fb1137a6",
+              "leftValue": "={{ $json.ok }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "ae66625ca8eb5a89a76dddb04fed455d",
+      "name": "검토 대기 등록",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1150,
+        -160
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8770/api/workflow/await-review",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Workflow-Client",
+              "value": "factory-training-local-v1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({request_id: $json.request_id, resume_url: $execution.resumeUrl, execution_id: $execution.id}) }}",
+        "options": {
+          "timeout": 180000
+        }
+      }
+    },
+    {
+      "id": "7731e4a4e06a52ab944287befae82d9b",
+      "name": "검토자 결정 대기",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1380,
+        -160
+      ],
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "webhookId": "factory-training-review-wait"
+    },
+    {
+      "id": "afe6fd6c5aba536882b31cf6ededbf93",
+      "name": "결정·계획 확정",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1610,
+        -160
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8770/api/workflow/finalize",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Workflow-Client",
+              "value": "factory-training-local-v1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({request_id: $json.body.request_id, decision: $json.body.decision}) }}",
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000
+    },
+    {
+      "id": "3b663440899e57be8396d17ede15fd1c",
+      "name": "입력 오류 차단",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        690,
+        180
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "b1520d7d2d475c54b90af2e950dcb35f",
+      "name": "AI 실패 기록",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1150,
+        100
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "합성 요청 접수": {
+      "main": [
+        [
+          {
+            "node": "원장·요청 검수",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "원장·요청 검수": {
+      "main": [
+        [
+          {
+            "node": "검수 통과?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "검수 통과?": {
+      "main": [
+        [
+          {
+            "node": "실제 Qwen·SimPy 비교",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "입력 오류 차단",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "실제 Qwen·SimPy 비교": {
+      "main": [
+        [
+          {
+            "node": "AI 비교 성공?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI 비교 성공?": {
+      "main": [
+        [
+          {
+            "node": "검토 대기 등록",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI 실패 기록",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "검토 대기 등록": {
+      "main": [
+        [
+          {
+            "node": "검토자 결정 대기",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "검토자 결정 대기": {
+      "main": [
+        [
+          {
+            "node": "결정·계획 확정",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all",
+    "saveManualExecutions": true,
+    "timezone": "Asia/Seoul"
+  },
+  "pinData": {},
+  "tags": []
+}
