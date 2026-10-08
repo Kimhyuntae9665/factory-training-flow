@@ -31,3 +31,5 @@ cookies*.json
 .DS_Store
 Thumbs.db
 .vscode/
+# Generated intermediate portfolio renders
+/docs/portfolio-source/render/

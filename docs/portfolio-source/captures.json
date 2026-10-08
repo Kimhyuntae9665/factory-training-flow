@@ -1,0 +1,38 @@
+{
+  "capture_date": "2026-10-08",
+  "measurement_date": "2026-10-07",
+  "synthetic": true,
+  "new_inference_calls": 0,
+  "raw_captures": [
+    {
+      "file": "approved-detail.jpg",
+      "sha256": "d468bb6db281bffa4494a235b68612d2a3fc652d3bb6ec0b612766fe55634f3f"
+    },
+    {
+      "file": "approved-full.jpg",
+      "sha256": "c30fd5fc15359d2c71263737a26b110b0d31f8ec76d942bfdf6087eda3c4de2f"
+    },
+    {
+      "file": "replay-baseline.jpg",
+      "sha256": "915c3399facf0b8abd4d537f2d072e114896b65d38c6180b426d3b504773c9c1"
+    },
+    {
+      "file": "replay-error.jpg",
+      "sha256": "0c2a52b0569787bd13086144c16d5a764bf01729442ce6646dc421c755ce573e"
+    },
+    {
+      "file": "replay-focus.jpg",
+      "sha256": "b178e315dc1b9528985ad48392e6dcf8ae71f4d8465030ff2113863a5a57dc7f"
+    },
+    {
+      "file": "replay-full.jpg",
+      "sha256": "6f24515ae213dd560903d0496e0d18181658c46c576f1d751c79ec5914f5f615"
+    },
+    {
+      "file": "replay-overview.jpg",
+      "sha256": "7cf819a4cd02d12ce86ba7f6a4e4051f3cea4d1016b7c32cb0f72acfa61a156a"
+    }
+  ],
+  "pdf_sha256": "88dab18b299f29ab30d5b3eeb371ece2a75794e4b7083d14ede6c778b5060952",
+  "revision": "Actual camera framing + 3-page portfolio; original evidence untouched"
+}
