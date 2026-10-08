@@ -1,18 +1,17 @@
-# 최종 PDF 설명·관찰 안내 윤문 검증
+# 1장 리뷰 반영 문구 · light 윤문 검증 완료
 
-최종 개선본 PDF를 읽기 전용으로 추출해 3페이지 제목·직무 연결 문장 3개·서술형 설명·관찰 안내 9개를 실제 검증했습니다. 필요한 문안 변경이나 루트 제안은 없습니다.
+신규·재배치한 검사 역량 카드, 비교 결과 카드와 축약 한계 문구만 검증했습니다. 원문이 자연스러워 문구를 수정하지 않았으며, 필요한 추가 제안도 없습니다.
 
-- 기준 PDF: `outputs/김현태_원익홀딩스_n8nAI_포트폴리오_개선본.pdf`
-- 기준 SHA-256: `88dab18b299f29ab30d5b3eeb371ece2a75794e4b7083d14ede6c778b5060952`
-- PDF 변경 없음: 검증 전후 SHA 동일. PDF·build.py·prose.md를 수정하지 않았습니다.
-- 대상: PDF에서 추출한 서술 블록 46개, 3페이지 제목·직무 연결 문장·관찰 안내 9개·설명·기술 캡션. PDF 문장 줄바꿈은 build.py/prose.md의 원문과 공백을 제외한 내용이 완전히 일치할 때만 원래 문장 줄바꿈으로 복원했습니다. 이 처리는 윤문이나 문구 변경이 아닙니다.
-- 보존 대상: 결과 표, 모델명·기기·시간·revision·선택값 등 사실 전용 값, 주석 번호, 날짜·저자·푸터, 출처 링크 라벨은 protected_blocks 25개로 기록했습니다. 캡처 내부 텍스트는 이미지 원본에 유지하며 서술 윤문 대상으로 추출하거나 수정하지 않았습니다. 화면 원본·표의 사실값을 변경하지 않았습니다.
-- 실제 절차: prepare_monolith_input → 독립 diagnostician → 진단 결합 prepare → 독립 monolith 및 원문 직접 대조 → restore_modality → strip_injected_commas → verify_gates.
-- 경로: standard / 보수 / report. 사전 risk_band low, score 0. 사실 제작 동사와 필수 직무 연결 형식은 오탐·보존 대상으로 판단했습니다.
-- 본문: 1,863자 → 1,863자, 문안 변경 0곳, 직접 대조 완전 일치.
-- 실제 게이트: change_rate 0.0%, exit 0, OK — 수렴, P3 golden PASS. 문장 터치율 0/66, 수치 누락 없음, 서법 소실 없음.
-- 복원 스크립트: restore_modality 복원 0문장 / 보류 0문장, exit 0. strip_injected_commas exit 0.
-- 자체검증: 6/6 통과, 등급 B. 자연스러운 설명과 안내를 억지로 수정하지 않았습니다.
-- 2장 02 최종 안내: `Qwen은 선택, SimPy는 수치를 계산합니다.`를 포함해 검증했습니다.
-- 필수 직무 연결: 교육 AI 과제 발굴 / LLM·생성형 AI·RPA 도입·운영 / 데이터 수집·정제·데이터베이스화의 각 연결 문장을 유지했습니다.
-- 시각 범위: 이 결과는 최종 PDF의 실제 문구 윤문 검증입니다. 화면 경계, 연결선 위치, 전체·100% 가독성은 루트의 시각 검수 범위입니다.
+- 대상 최종 PDF: `outputs/김현태_원익홀딩스_n8nAI_포트폴리오_개선본.pdf`
+- 최종 SHA-256: `e56806ffe16fd5c8286be481015da6ef5eebca8a71a99f1145fa4e4659005ef9`
+- 최초 전달 PDF SHA: `789f2017bc7be5af38643aff53e17f140743a9729712515cf3f152b0261fa7f7`. 루트가 한계 문구의 `아닙니다.` 다음에 줄바꿈을 옮긴 뒤 최신 PDF를 다시 열고 검증했습니다. 어휘·조건·수치는 동일합니다.
+- 최종 PDF 재열람: PyMuPDF로 1장 텍스트를 다시 추출하고 100% 이미지를 렌더해 확인했습니다. 입력 5블록은 공백·줄바꿈을 제외하면 최종 PDF와 완전히 일치합니다. 한계 문구가 `아닙니다.` 다음에 줄바꿈되어 읽히는 것도 확인했습니다. 이미지: `page1-review-100.png`.
+- 실제 지침 조회: i-am-not-ai SKILL.md, monolith.md, quick-rules.md를 다시 읽었습니다.
+- 원문 보존: `01_input.txt` 및 `00_input_preserved.txt`. 5블록 190자(끝 LF 포함) / 189자(끝 개행 제외). 원문·최종 본문은 완전히 동일합니다.
+- 사전채점: prepare_monolith_input exit 0, risk_band low, risk_score 0, route_hint light, degraded False. 원문의 독립된 제목·블록·줄바꿈을 유지했습니다.
+- 독립 monolith: light / 보수 / report로 실제 진단·윤문 필요 여부·직접 대조·6항 자체검증을 수행했습니다. 실질적인 AI 표현 패턴을 찾지 못해 수정 0곳, 자체검증 6/6, 등급 B로 기록했습니다.
+- 실제 복원: restore_modality exit 0, 복원 0문장 / 보류 0문장. strip_injected_commas exit 0.
+- 실제 게이트: verify_gates exit 0, change_rate 0.0%, gate OK — 수렴, P3 golden PASS, 문장 터치율 0/9. 서법 소실 0문장, 수치 누락 0건입니다.
+- 보호: `02 검사 역량`, `03 비교 결과`, `1명→2명`, `36.1개→58.3개`, `8시간`, `10개 seed`, 합성 작업자·개인 PoC, 실제 직원·원익 내부 데이터 제외, 현장 비용·안전·교육 효과·원익 n8n 사용 여부 미확인. 출처 링크 라벨·URL 및 캡처 내부 텍스트는 수정하지 않았습니다.
+- 파일 경계: 이번 실행은 이 검증 폴더만 작성했습니다. PDF·build.py·기존 prose.md와 다른 작업자의 파일을 수정하거나 되돌리지 않았습니다. 최종 PDF SHA는 검증 시작과 완료 시점에 동일합니다.
+- 증거: `03_prepare.txt`, `04_modality.txt`, `05_commas.txt`, `06_gates.txt`, `validation.json`, `direct-comparison.diff`에 실제 결과가 있습니다. `final.md`의 진단 메타는 검증용이며 PDF에 주입하지 않았습니다.

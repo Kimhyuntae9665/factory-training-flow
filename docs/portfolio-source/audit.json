@@ -106,52 +106,44 @@
       "page": 1,
       "number": 2,
       "guide_start": [
-        484,
-        613
+        986,
+        467
       ],
       "route": [
         [
-          484,
-          606
+          968,
+          467
         ],
         [
-          955,
-          606
-        ],
-        [
-          955,
-          529
-        ]
-      ],
-      "target": [
-        291,
-        529
-      ]
-    },
-    {
-      "page": 1,
-      "number": 3,
-      "guide_start": [
-        794,
-        613
-      ],
-      "route": [
-        [
-          794,
-          609
-        ],
-        [
-          969,
-          609
-        ],
-        [
-          969,
+          968,
           397
         ]
       ],
       "target": [
         669,
         397
+      ]
+    },
+    {
+      "page": 1,
+      "number": 3,
+      "guide_start": [
+        986,
+        585
+      ],
+      "route": [
+        [
+          957,
+          585
+        ],
+        [
+          957,
+          529
+        ]
+      ],
+      "target": [
+        291,
+        529
       ]
     },
     {
@@ -310,14 +302,14 @@
   "prose_gate": "exit 0, OK, golden PASS, 6/6",
   "prose_change_rate": 0,
   "original_pdf_preserved": true,
-  "pdf_sha256": "88dab18b299f29ab30d5b3eeb371ece2a75794e4b7083d14ede6c778b5060952",
+  "pdf_sha256": "e56806ffe16fd5c8286be481015da6ef5eebca8a71a99f1145fa4e4659005ef9",
   "visual_review": {
     "status": "passed",
     "full_page": "all 3 pages rendered and inspected",
     "100_percent": "all 3 at 1280x720 inspected; detail at 1920x1080",
     "border": "four continuous external edges on all 3 visuals",
     "leaders": "9 guide items; target numbers match; no crossings between guide leaders",
-    "repaired": "p3 marker moved off 36.1; p2 caption moved out of leader path; p1 metric marker reduced to avoid metadata",
+    "repaired": "User-selected lower right blocks replaced with two screen callouts; inspection marker02 and metric marker03; no line crossings/covered controls or values; source/limits relocated beneath image",
     "captions": "outside screenshot and kept separate from footer",
     "job_connections": "visible below each page title; match official HR JD"
   },
@@ -332,7 +324,8 @@
     "missing_record": "clear 안내 shown; no model call",
     "console_errors": 0,
     "javascript_syntax": "factory-view.js and replay.js node --check exit0",
-    "scope": "camera/framing and layout only; no numerical engine or inference changes; earlier E2E results retained"
+    "scope": "camera/framing and layout only; no numerical engine or inference changes; earlier E2E results retained",
+    "verification_reuse": "2026-10-08 previous UI checks; no UI/source capture changes in this annotation revision"
   },
   "capture_sha256": {
     "approved-detail.jpg": "d468bb6db281bffa4494a235b68612d2a3fc652d3bb6ec0b612766fe55634f3f",
@@ -343,7 +336,26 @@
     "replay-full.jpg": "6f24515ae213dd560903d0496e0d18181658c46c576f1d751c79ec5914f5f615",
     "replay-overview.jpg": "7cf819a4cd02d12ce86ba7f6a4e4051f3cea4d1016b7c32cb0f72acfa61a156a"
   },
-  "prose_rendered_validation": {
+  "review_comments": {
+    "date": "2026-10-08",
+    "scope": "only page1 PDF layout and copy",
+    "comment1": "removed 제가 만든 범위; 검사 역량 card at (986,437), leader to actual inspection desk (669,397)",
+    "comment2": "removed right-bottom links/limitation block; 비교 결과 card at (986,550), leader to stored metrics (291,529)",
+    "sources_and_limits": "compact under screenshot x344,y616/658; preserved original UI warnings/date",
+    "pages2_3": "text and 100% rendered PNG byte-identical to preserved prior PDF",
+    "source_captures": "unchanged; no new simulator or model execution",
+    "before_pdf_sha256": "88dab18b299f29ab30d5b3eeb371ece2a75794e4b7083d14ede6c778b5060952",
+    "after_pdf_sha256": "e56806ffe16fd5c8286be481015da6ef5eebca8a71a99f1145fa4e4659005ef9"
+  },
+  "prose_review2_status": {
+    "scope": "5 changed/repositioned copy blocks; prior whole-document gate retained in Git history",
+    "route": "light",
+    "change_rate": 0,
+    "gate": "exit0 / OK / golden PASS / 6 of6",
+    "report": "work/i-am-not-ai/2026-10-08-005-portfolio-review2/07_report.md",
+    "matching_pdf_sha256": "e56806ffe16fd5c8286be481015da6ef5eebca8a71a99f1145fa4e4659005ef9"
+  },
+  "prior_whole_document_prose_gate": {
     "scope": "final PDF titles + 3 connections + 46 prose blocks + 9 observation guides; table/raw UI protected",
     "route": "standard",
     "change_rate": 0,
@@ -351,6 +363,5 @@
     "sentences": 66,
     "report": "work/i-am-not-ai/2026-10-08-004-portfolio-v2/final-rendered-text/07_report.md",
     "matching_pdf_sha256": "88dab18b299f29ab30d5b3eeb371ece2a75794e4b7083d14ede6c778b5060952"
-  },
-  "editable_source_build": "Public copy build completed; verified final PDF restored byte-for-byte afterward"
+  }
 }
