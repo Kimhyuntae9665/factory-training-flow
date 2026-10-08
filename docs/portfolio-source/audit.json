@@ -94,12 +94,25 @@
         ],
         [
           28,
-          445
+          450
         ]
       ],
       "target": [
-        207,
-        445
+        201,
+        450
+      ],
+      "highlight_region": [
+        201,
+        426,
+        394,
+        80
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        201,
+        412,
+        14,
+        14
       ]
     },
     {
@@ -116,12 +129,25 @@
         ],
         [
           968,
-          397
+          400
         ]
       ],
       "target": [
-        669,
-        397
+        701,
+        400
+      ],
+      "highlight_region": [
+        615,
+        372,
+        86,
+        69
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        615,
+        358,
+        14,
+        14
       ]
     },
     {
@@ -138,12 +164,25 @@
         ],
         [
           957,
-          529
+          547
         ]
       ],
       "target": [
-        291,
-        529
+        432,
+        547
+      ],
+      "highlight_region": [
+        244,
+        530,
+        188,
+        17
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        244,
+        516,
+        14,
+        14
       ]
     },
     {
@@ -164,8 +203,21 @@
         ]
       ],
       "target": [
-        718,
+        924,
         282
+      ],
+      "highlight_region": [
+        61,
+        263,
+        863,
+        39
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        45,
+        267,
+        14,
+        14
       ]
     },
     {
@@ -181,13 +233,26 @@
           528
         ],
         [
-          202,
+          142,
           528
         ]
       ],
       "target": [
-        202,
-        414
+        142,
+        434
+      ],
+      "highlight_region": [
+        76,
+        277,
+        134,
+        157
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        76,
+        263,
+        14,
+        14
       ]
     },
     {
@@ -203,13 +268,26 @@
           535
         ],
         [
-          419,
+          360,
           535
         ]
       ],
       "target": [
-        419,
-        414
+        360,
+        434
+      ],
+      "highlight_region": [
+        296,
+        277,
+        127,
+        157
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        296,
+        263,
+        14,
+        14
       ]
     },
     {
@@ -225,13 +303,26 @@
           528
         ],
         [
-          862,
+          802,
           528
         ]
       ],
       "target": [
-        862,
-        414
+        802,
+        434
+      ],
+      "highlight_region": [
+        736,
+        277,
+        133,
+        157
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        736,
+        263,
+        14,
+        14
       ]
     },
     {
@@ -256,8 +347,21 @@
         ]
       ],
       "target": [
-        213,
+        61,
         302
+      ],
+      "highlight_region": [
+        61,
+        269,
+        669,
+        116
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        61,
+        255,
+        14,
+        14
       ]
     },
     {
@@ -282,8 +386,21 @@
         ]
       ],
       "target": [
-        712,
+        726,
         518
+      ],
+      "highlight_region": [
+        63,
+        489,
+        663,
+        47
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        63,
+        475,
+        14,
+        14
       ]
     },
     {
@@ -308,8 +425,21 @@
         ]
       ],
       "target": [
-        1224,
+        1226,
         329
+      ],
+      "highlight_region": [
+        807,
+        307,
+        419,
+        41
+      ],
+      "outline_pt": 1,
+      "number_tab": [
+        807,
+        293,
+        14,
+        14
       ]
     }
   ],
@@ -324,16 +454,15 @@
   "prose_gate": "exit 0, OK, golden PASS, 6/6",
   "prose_change_rate": 0,
   "original_pdf_preserved": true,
-  "pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62",
+  "pdf_sha256": "680be446d87c8f788fa3373a68d3fd9438005c1a0f2145412ff7b0a344421e24",
   "visual_review": {
     "status": "passed",
-    "full_page": "all 3 pages rendered and inspected",
-    "100_percent": "all 3 at 1280x720 inspected; detail at 1920x1080",
-    "border": "four continuous external edges on all 3 visuals",
-    "leaders": "10 guide items; target numbers match; no crossings between guide leaders",
-    "repaired": "page1 title and control callout updated; guide04 lands in blank strip margin, no text/button obstruction; continuous4edges and all10 leader targets inspected at full-page and100percent",
-    "captions": "outside screenshot and kept separate from footer",
-    "job_connections": "visible below each page title; match official HR JD"
+    "full_page": "all3 pages re-rendered and visually inspected",
+    "100_percent": "all3 1280x720 views inspected; page1 also at150percent",
+    "border": "three continuous outer4edge frames",
+    "region_outlines": "10 unfilled thin1pt rectangles; numbers outside selected regions; leader endpoints on boundaries",
+    "readability": "no hidden text/metrics/buttons; diagram colors brightened against dark background",
+    "job_connections": "all3 retained and visible"
   },
   "KASA": "project-specific case study, no award field or resume edit",
   "ui_verification": {
@@ -360,19 +489,6 @@
     "replay-review3-focus.jpg": "b3b876ebef0ab05d5614fab7dbf5b8263bb50f5c820437c148b2526d056d215c",
     "replay-review3-full.jpg": "b243425d08eb40166f779c131198e69ae247a4a2c50084a895d81d16ff0615c1"
   },
-  "review_comments3": {
-    "date": "2026-10-08",
-    "comment1": "control guide04 with three explicit descriptions; leader points to empty controls-strip margin at718,282",
-    "comment2": "actual replay HTML h1/eyebrow edited, reloaded and recaptured; no screenshot retouching",
-    "comment3": "page1 title ties inspection training + automation comparison to education AI task discovery",
-    "pages2_3": "PDF text and100percent PNG byte-identical to review3 backup",
-    "official_job": "https://wonik.recruiter.co.kr/career/jobs/128767",
-    "company_background": "https://wonikrobotics.com/kr/sub/application/robotAutomation/digital_twin.php",
-    "claim_boundary": "HR education AI task discovery is official duty; company digital twin is public background only; our results use synthetic assumptions",
-    "live_capture": "approved stored request at90/480, combined, process focus, paused; new h1 visible, metrics58.3/50percent/8hours; footer preserved; console errors0",
-    "new_model_calls": 0,
-    "pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62"
-  },
   "prior_whole_document_prose_gate": {
     "scope": "final PDF titles + 3 connections + 46 prose blocks + 9 observation guides; table/raw UI protected",
     "route": "standard",
@@ -389,5 +505,26 @@
     "gate": "exit0 / OK / golden PASS / 6of6",
     "report": "work/i-am-not-ai/2026-10-08-006-portfolio-review3/07_report.md",
     "matching_pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62"
+  },
+  "review_comments3": {
+    "date": "2026-10-08",
+    "comment1": "control guide04 with three explicit descriptions; leader points to empty controls-strip margin at718,282",
+    "comment2": "actual replay HTML h1/eyebrow edited, reloaded and recaptured; no screenshot retouching",
+    "comment3": "page1 title ties inspection training + automation comparison to education AI task discovery",
+    "pages2_3": "PDF text and100percent PNG byte-identical to review3 backup",
+    "official_job": "https://wonik.recruiter.co.kr/career/jobs/128767",
+    "company_background": "https://wonikrobotics.com/kr/sub/application/robotAutomation/digital_twin.php",
+    "claim_boundary": "HR education AI task discovery is official duty; company digital twin is public background only; our results use synthetic assumptions",
+    "live_capture": "approved stored request at90/480, combined, process focus, paused; new h1 visible, metrics58.3/50percent/8hours; footer preserved; console errors0",
+    "new_model_calls": 0,
+    "pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62"
+  },
+  "review_comments4": {
+    "scope": "document-layer highlights on all3 pages",
+    "text": "all3 PDF text identical after whitespace normalization to preserved prior PDF",
+    "screenshots": "same raw capture files and hashes; no image alteration",
+    "prose_gate": "reuse previous actual gate because prose is identical; no new writing",
+    "orchestration": "small coupled geometry change handled directly by root under6-1-sol-orch",
+    "new_model_calls": 0
   }
 }

@@ -41,6 +41,6 @@
       "sha256": "b243425d08eb40166f779c131198e69ae247a4a2c50084a895d81d16ff0615c1"
     }
   ],
-  "pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62",
-  "revision": "Review3: intuitive page1 and live simulator titles; control explanations with leader04; recaptured actual stored-result replay; pages2/3 and engine unchanged"
+  "pdf_sha256": "680be446d87c8f788fa3373a68d3fd9438005c1a0f2145412ff7b0a344421e24",
+  "revision": "Review4:10 thin rectangle highlights with boundary leader lines on3pages; text and raw captures unchanged"
 }

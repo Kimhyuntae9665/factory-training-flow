@@ -6,7 +6,7 @@
 - `web/replay.html`(저장소 루트): 프로그램 제목을 직관적으로 수정한 실제 UI 소스입니다. 수정 후 다시 실행해 `replay-review3-full.jpg`와 `replay-review3-focus.jpg`를 촬영했습니다.
 - `prose.md`: 페이지별 직무 연결 및 사실 문구.
 - `screens/`: 2026.10.08 실제 localhost 화면 캡처. `*-full.jpg`는 전체 원본, `approved-detail.jpg`는 명시한 결과 영역 확대입니다. 공정 수치와 실제 Qwen 실행은 2026.10.07 기록입니다.
-- `audit.json`, `검수기록.md`: 3페이지·연결 문장·네 변 테두리·10개 안내·실제 조작 검수 기록.
+- `audit.json`, `검수기록.md`: 3페이지·연결 문장·네 변 테두리·10개 안내·얇은 사각형 영역 표시·실제 조작 검수 기록.
 - `prose-validation.md`: 최종 서술형 본문의 윤문 검증 기록.
 
 Windows의 맑은 고딕 폰트를 사용합니다. 저장소 루트에서 아래 명령으로 PDF를 다시 만들 수 있습니다.
