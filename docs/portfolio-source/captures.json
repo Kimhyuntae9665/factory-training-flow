@@ -31,8 +31,16 @@
     {
       "file": "replay-overview.jpg",
       "sha256": "7cf819a4cd02d12ce86ba7f6a4e4051f3cea4d1016b7c32cb0f72acfa61a156a"
+    },
+    {
+      "file": "replay-review3-focus.jpg",
+      "sha256": "b3b876ebef0ab05d5614fab7dbf5b8263bb50f5c820437c148b2526d056d215c"
+    },
+    {
+      "file": "replay-review3-full.jpg",
+      "sha256": "b243425d08eb40166f779c131198e69ae247a4a2c50084a895d81d16ff0615c1"
     }
   ],
-  "pdf_sha256": "e56806ffe16fd5c8286be481015da6ef5eebca8a71a99f1145fa4e4659005ef9",
-  "revision": "Review comments1+2: page1 side screen callouts; original captures/engine/evidence and pages2/3 untouched"
+  "pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62",
+  "revision": "Review3: intuitive page1 and live simulator titles; control explanations with leader04; recaptured actual stored-result replay; pages2/3 and engine unchanged"
 }

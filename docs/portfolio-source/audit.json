@@ -25,7 +25,7 @@
   "screenshots": [
     {
       "page": 1,
-      "file": "work\\n8n-portfolio-v2\\screens\\replay-focus.jpg",
+      "file": "work\\n8n-portfolio-v2\\screens\\replay-review3-focus.jpg",
       "image": [
         44,
         155,
@@ -144,6 +144,28 @@
       "target": [
         291,
         529
+      ]
+    },
+    {
+      "page": 1,
+      "number": 4,
+      "guide_start": [
+        986,
+        332
+      ],
+      "route": [
+        [
+          978,
+          332
+        ],
+        [
+          978,
+          282
+        ]
+      ],
+      "target": [
+        718,
+        282
       ]
     },
     {
@@ -302,14 +324,14 @@
   "prose_gate": "exit 0, OK, golden PASS, 6/6",
   "prose_change_rate": 0,
   "original_pdf_preserved": true,
-  "pdf_sha256": "e56806ffe16fd5c8286be481015da6ef5eebca8a71a99f1145fa4e4659005ef9",
+  "pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62",
   "visual_review": {
     "status": "passed",
     "full_page": "all 3 pages rendered and inspected",
     "100_percent": "all 3 at 1280x720 inspected; detail at 1920x1080",
     "border": "four continuous external edges on all 3 visuals",
-    "leaders": "9 guide items; target numbers match; no crossings between guide leaders",
-    "repaired": "User-selected lower right blocks replaced with two screen callouts; inspection marker02 and metric marker03; no line crossings/covered controls or values; source/limits relocated beneath image",
+    "leaders": "10 guide items; target numbers match; no crossings between guide leaders",
+    "repaired": "page1 title and control callout updated; guide04 lands in blank strip margin, no text/button obstruction; continuous4edges and all10 leader targets inspected at full-page and100percent",
     "captions": "outside screenshot and kept separate from footer",
     "job_connections": "visible below each page title; match official HR JD"
   },
@@ -325,7 +347,7 @@
     "console_errors": 0,
     "javascript_syntax": "factory-view.js and replay.js node --check exit0",
     "scope": "camera/framing and layout only; no numerical engine or inference changes; earlier E2E results retained",
-    "verification_reuse": "2026-10-08 previous UI checks; no UI/source capture changes in this annotation revision"
+    "revision3": "actual replay reloaded after title edit; paused and reset to90 via stored combined choice; original full capture retained; zero console errors"
   },
   "capture_sha256": {
     "approved-detail.jpg": "d468bb6db281bffa4494a235b68612d2a3fc652d3bb6ec0b612766fe55634f3f",
@@ -334,26 +356,22 @@
     "replay-error.jpg": "0c2a52b0569787bd13086144c16d5a764bf01729442ce6646dc421c755ce573e",
     "replay-focus.jpg": "b178e315dc1b9528985ad48392e6dcf8ae71f4d8465030ff2113863a5a57dc7f",
     "replay-full.jpg": "6f24515ae213dd560903d0496e0d18181658c46c576f1d751c79ec5914f5f615",
-    "replay-overview.jpg": "7cf819a4cd02d12ce86ba7f6a4e4051f3cea4d1016b7c32cb0f72acfa61a156a"
+    "replay-overview.jpg": "7cf819a4cd02d12ce86ba7f6a4e4051f3cea4d1016b7c32cb0f72acfa61a156a",
+    "replay-review3-focus.jpg": "b3b876ebef0ab05d5614fab7dbf5b8263bb50f5c820437c148b2526d056d215c",
+    "replay-review3-full.jpg": "b243425d08eb40166f779c131198e69ae247a4a2c50084a895d81d16ff0615c1"
   },
-  "review_comments": {
+  "review_comments3": {
     "date": "2026-10-08",
-    "scope": "only page1 PDF layout and copy",
-    "comment1": "removed 제가 만든 범위; 검사 역량 card at (986,437), leader to actual inspection desk (669,397)",
-    "comment2": "removed right-bottom links/limitation block; 비교 결과 card at (986,550), leader to stored metrics (291,529)",
-    "sources_and_limits": "compact under screenshot x344,y616/658; preserved original UI warnings/date",
-    "pages2_3": "text and 100% rendered PNG byte-identical to preserved prior PDF",
-    "source_captures": "unchanged; no new simulator or model execution",
-    "before_pdf_sha256": "88dab18b299f29ab30d5b3eeb371ece2a75794e4b7083d14ede6c778b5060952",
-    "after_pdf_sha256": "e56806ffe16fd5c8286be481015da6ef5eebca8a71a99f1145fa4e4659005ef9"
-  },
-  "prose_review2_status": {
-    "scope": "5 changed/repositioned copy blocks; prior whole-document gate retained in Git history",
-    "route": "light",
-    "change_rate": 0,
-    "gate": "exit0 / OK / golden PASS / 6 of6",
-    "report": "work/i-am-not-ai/2026-10-08-005-portfolio-review2/07_report.md",
-    "matching_pdf_sha256": "e56806ffe16fd5c8286be481015da6ef5eebca8a71a99f1145fa4e4659005ef9"
+    "comment1": "control guide04 with three explicit descriptions; leader points to empty controls-strip margin at718,282",
+    "comment2": "actual replay HTML h1/eyebrow edited, reloaded and recaptured; no screenshot retouching",
+    "comment3": "page1 title ties inspection training + automation comparison to education AI task discovery",
+    "pages2_3": "PDF text and100percent PNG byte-identical to review3 backup",
+    "official_job": "https://wonik.recruiter.co.kr/career/jobs/128767",
+    "company_background": "https://wonikrobotics.com/kr/sub/application/robotAutomation/digital_twin.php",
+    "claim_boundary": "HR education AI task discovery is official duty; company digital twin is public background only; our results use synthetic assumptions",
+    "live_capture": "approved stored request at90/480, combined, process focus, paused; new h1 visible, metrics58.3/50percent/8hours; footer preserved; console errors0",
+    "new_model_calls": 0,
+    "pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62"
   },
   "prior_whole_document_prose_gate": {
     "scope": "final PDF titles + 3 connections + 46 prose blocks + 9 observation guides; table/raw UI protected",
@@ -363,5 +381,13 @@
     "sentences": 66,
     "report": "work/i-am-not-ai/2026-10-08-004-portfolio-v2/final-rendered-text/07_report.md",
     "matching_pdf_sha256": "88dab18b299f29ab30d5b3eeb371ece2a75794e4b7083d14ede6c778b5060952"
+  },
+  "prose_review3_status": {
+    "scope": "six changed title/control-description blocks",
+    "route": "light",
+    "change_rate": 0,
+    "gate": "exit0 / OK / golden PASS / 6of6",
+    "report": "work/i-am-not-ai/2026-10-08-006-portfolio-review3/07_report.md",
+    "matching_pdf_sha256": "b4ccfcc53dd5503f74e216f43287a176bad34bf19f890ef326060a8207105e62"
   }
 }

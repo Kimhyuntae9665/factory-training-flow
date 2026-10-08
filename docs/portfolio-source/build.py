@@ -26,7 +26,7 @@ pdfmetrics.registerFont(TTFont('KR','C:/Windows/Fonts/malgun.ttf'))
 pdfmetrics.registerFont(TTFont('KR-B','C:/Windows/Fonts/malgunbd.ttf'))
 W,H=1280,720
 NAVY='#19374b';BLUE='#246f9e';TEAL='#187e6d';GOLD='#9b6913';GRAY='#536b79';LIGHT='#eaf2f5'
-COLORS=[BLUE,TEAL,GOLD]
+COLORS=[BLUE,TEAL,GOLD,'#755b9d']
 PDF=OUT/('portfolio.pdf' if PUBLISHED else '김현태_원익홀딩스_n8nAI_포트폴리오_개선본.pdf')
 c=canvas.Canvas(str(PDF),pagesize=(W,H),pageCompression=1)
 c.setTitle('Factory Training Flow | 김현태 | 원익홀딩스 HR Data & AI | 개선본')
@@ -75,14 +75,14 @@ def leader(n,points,target):
  c.setFillColor(HexColor('#ffffff'));c.setFont('KR-B',8 if radius==6 else 10);c.drawCentredString(target[0],H-target[1]-3,str(n))
  annotations.append({'page':page_no,'number':n,'guide_start':points[0],'route':points[1:],'target':target})
 
-base(1,'01  /  움직이는 공장과 교육 문제','공장을 가까이 보고, 교육할 지점을 찾습니다')
-h=shot(ROOT/'screens/replay-focus.jpg',44,155,900)
+base(1,'01  /  교육 AI 과제 발굴 · 합성 공정 비교','검사 교육과 공정 자동화를 비교하는 AI 교육기획 데모')
+h=shot(ROOT/'screens/replay-review3-focus.jpg',44,155,900)
 text(44,589,'실제 요청의 공정 기록 재생 · seed 0 / 10회 평균 · 기록 2026.10.07 / 재촬영 2026.10.08',9,GRAY)
 text(986,155,'이 화면에서 보는 문제',16,NAVY,True)
 para(986,188,'합성 작업자 4명 중 검사 자격은 1명입니다. 자동화만 할 때와 검사 교육을 함께 할 때를 같은 주문 조건에서 비교합니다.',250,12)
 rect(986,304,250,110,LIGHT)
-text(1001,317,'직접 바꾸고 관찰',13,BLUE,True)
-para(1001,346,'대안: 기준 / 로봇 / 교육 / 결합\n구도: 공정 확대 / 전체 공장\n시간: 재생·정지 / 시각 조절',220,11.5)
+text(1001,317,'04  대안·구도·재생 조작',13,COLORS[3],True)
+para(1001,346,'대안: 저장된 네 대안 결과 선택\n구도: 공정 확대·전체 공장 전환\n재생·시각: 공정의 진행 시점 확인',220,10.8)
 rect(986,437,250,88,LIGHT)
 text(1001,450,'02  검사 역량',13,TEAL,True)
 para(1001,478,'검사 자격은 1명→2명입니다.\n교육 가정에 따른 변화를 검사대에서 봅니다.',220,11)
@@ -93,6 +93,7 @@ guide(1,44,613,'공정 흐름','컨베이어·AMR가 이동하는 위치를 봅�
 leader(1,[(184,613),(184,603),(28,603),(28,445)],(207,445))
 leader(2,[(986,467),(968,467),(968,397)],(669,397))
 leader(3,[(986,585),(957,585),(957,529)],(291,529))
+leader(4,[(986,332),(978,332),(978,282)],(718,282))
 para(344,616,'합성 작업자·개인 PoC입니다. 실제 직원·원익 내부 데이터가 아닙니다.\n현장 비용·안전·교육 효과와 원익의 n8n 사용 여부는 미확인입니다.',600,10,GRAY)
 link(344,658,'출처: 공식 공고 / HR Data & AI','https://wonik.recruiter.co.kr/career/jobs/128767',8.5)
 link(530,658,'문제 배경: 원익로보틱스 공개 디지털트윈','https://wonikrobotics.com/kr/sub/application/robotAutomation/digital_twin.php',8.5)
