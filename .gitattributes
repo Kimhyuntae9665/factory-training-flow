@@ -12,3 +12,6 @@ simulator/data/workforce.json -text
 assets/* -text
 web/vendor/* -text
 simulator/web/vendor/* -text
+
+# Preserve inherited vendor / source manifests in the learning extension
+wonik-learning-lens/vendor/* -text -whitespace

@@ -1,0 +1,26 @@
+{
+  "name": "WONIK 합성 교육계획 · 수동 검토 설계 (실행 미검증)",
+  "active": false,
+  "nodes": [
+    {"id":"manual","name":"수동 시작","type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"parameters":{}},
+    {"id":"context","name":"합성 원장 확인","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[220,0],"parameters":{"url":"http://127.0.0.1:8786/api/learning/context","options":{}}},
+    {"id":"request","name":"교육 요청","type":"n8n-nodes-base.set","typeVersion":3.4,"position":[440,0],"parameters":{"assignments":{"assignments":[{"id":"request-id","name":"requestId","type":"string","value":"={{ 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.floor(Math.random()*16); return (c === 'x' ? r : (r & 3) | 8).toString(16); }) }}"},{"id":"worker-id","name":"selectedWorkerId","type":"string","value":"SYN-101"},{"id":"query","name":"query","type":"string","value":"자재 투입 라벨 교육"},{"id":"scope","name":"policyScope","type":"string","value":"current"}]},"options":{}}},
+    {"id":"review","name":"교육 요청 검토","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[660,0],"parameters":{"method":"POST","url":"http://127.0.0.1:8786/api/learning/review","sendBody":true,"specifyBody":"json","jsonBody":"={{ JSON.stringify($json) }}","options":{"timeout":125000}}},
+    {"id":"gate","name":"검토 가능한 요청","type":"n8n-nodes-base.if","typeVersion":2.2,"position":[880,0],"parameters":{"conditions":{"options":{"caseSensitive":true,"leftValue":"","typeValidation":"strict","version":2},"conditions":[{"id":"state-check","leftValue":"={{ $json.state }}","rightValue":"awaiting_approval","operator":{"type":"string","operation":"equals"}}],"combinator":"and"},"options":{}}},
+    {"id":"wait","name":"담당자 승인 또는 거절 대기","type":"n8n-nodes-base.wait","typeVersion":1.1,"position":[1100,-100],"webhookId":"39b5ac3f-09fb-49e8-a247-24f391a31b3b","parameters":{"resume":"webhook","httpMethod":"POST","options":{}},"notes":"근거와 자격을 검토한 담당자가 Wait 재개 URL에 JSON {action:approve} 또는 {action:reject}를 명시적으로 POST. 자동 승인 없음. n8n 실행 및 인증 설정 미검증.","notesInFlow":true},
+    {"id":"decision","name":"명시적 결정 기록","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[1320,-100],"parameters":{"method":"POST","url":"http://127.0.0.1:8786/api/learning/decision","sendBody":true,"specifyBody":"json","jsonBody":"={{ JSON.stringify({ requestId: $('교육 요청').item.json.requestId, action: $json.body.action }) }}","options":{}}},
+    {"id":"plans","name":"계획 원장 출력","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[1540,-100],"parameters":{"url":"http://127.0.0.1:8786/api/learning/plans","options":{}}}
+  ],
+  "connections": {
+    "수동 시작":{"main":[[{"node":"합성 원장 확인","type":"main","index":0}]]},
+    "합성 원장 확인":{"main":[[{"node":"교육 요청","type":"main","index":0}]]},
+    "교육 요청":{"main":[[{"node":"교육 요청 검토","type":"main","index":0}]]},
+    "교육 요청 검토":{"main":[[{"node":"검토 가능한 요청","type":"main","index":0}]]},
+    "검토 가능한 요청":{"main":[[{"node":"담당자 승인 또는 거절 대기","type":"main","index":0}],[]]},
+    "담당자 승인 또는 거절 대기":{"main":[[{"node":"명시적 결정 기록","type":"main","index":0}]]},
+    "명시적 결정 기록":{"main":[[{"node":"계획 원장 출력","type":"main","index":0}]]}
+  },
+  "settings":{"executionOrder":"v1"},
+  "pinData":{},
+  "meta":{"description":"합성 자료만 사용하는 로컬 설계. n8n 가져오기와 실제 실행은 이번 작업에서 미검증."}
+}

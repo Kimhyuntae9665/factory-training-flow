@@ -1,0 +1,2 @@
+planId,requestId,workerId,courseId,courseTitle,hours,plannedAt,status,qualificationGranted,synthetic
+"7ee7d9fb-9d5e-4917-8863-884ab4ebc0b3","f83a44b0-0a79-40db-9a26-bb0ec6c4f097","SYN-101","C-LOAD","자재 투입 기초","2","2026-10-09T00:23:53.954Z","education_plan_confirmed","false","true"

@@ -1,4 +1,4 @@
-# 3페이지 포트폴리오 개선본 편집 소스
+# 이전 n8n 버전 포트폴리오 편집 소스
 
 원익홀딩스 공식 공고의 교육 AI 과제 발굴, LLM·생성형 AI·RPA 솔루션 도입·운영, 데이터 수집·정제·데이터베이스화 업무를 위해 만든 개인 PoC의 3페이지 설명 자료입니다. 실제 원익 내부 도입·직원 데이터·HR 실무 성과가 아닙니다.
 
@@ -16,4 +16,4 @@ python -m pip install reportlab Pillow PyMuPDF
 python -X utf8 docs/portfolio-source/build.py
 ```
 
-재빌드 결과는 `docs/portfolio.pdf`에 저장합니다. 빌드는 기존 실험 증거만 읽고 LLM·n8n을 새로 실행하지 않습니다. `audit.json`의 새 빌드 시각적 검수는 pending으로 생성되므로 수정 후 실제 렌더링을 재열람해야 합니다.
+재빌드 결과는 `docs/archive/factory-training-flow-20261008/portfolio.pdf`에 저장합니다. 최신 Line Lens 확장 포트폴리오와 구분하며, 최신 편집 원본은 [portfolio-source-v2](../portfolio-source-v2/README.md)입니다. 빌드는 기존 실험 증거만 읽고 LLM·n8n을 새로 실행하지 않습니다. `audit.json`의 새 빌드 시각적 검수는 pending으로 생성되므로 수정 후 실제 렌더링을 재열람해야 합니다.

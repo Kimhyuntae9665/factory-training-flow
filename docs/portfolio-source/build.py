@@ -14,7 +14,8 @@ ROOT=Path(__file__).resolve().parent
 BASE=ROOT.parents[1]
 PUBLISHED=(BASE/'adapter.py').is_file()
 PROJECT=BASE if PUBLISHED else BASE/'work/factory-n8n'
-OUT=BASE/'docs' if PUBLISHED else BASE/'outputs'
+OUT=BASE/'docs/archive/factory-training-flow-20261008' if PUBLISHED else BASE/'outputs'
+OUT.mkdir(parents=True,exist_ok=True)
 e2e=json.loads((PROJECT/'evidence/e2e-results.json').read_text(encoding='utf-8'))
 approved=json.loads((PROJECT/'evidence/approved.json').read_text(encoding='utf-8'))
 unit=json.loads((PROJECT/'tests/test-results.json').read_text(encoding='utf-8'))

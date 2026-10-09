@@ -1,0 +1,41 @@
+{
+  "capture": {
+    "file": "review.jpg",
+    "imageSize": [
+      1107,
+      716.15625
+    ],
+    "regions": {
+      "course": [
+        23,
+        153.328125,
+        1061,
+        32.546875
+      ],
+      "evidence": [
+        23,
+        290.703125,
+        1061,
+        159.171875
+      ],
+      "approval": [
+        23,
+        609.90625,
+        433.421875,
+        47.25
+      ]
+    }
+  },
+  "requestId": "f83a44b0-0a79-40db-9a26-bb0ec6c4f097",
+  "selectedWorkerId": "SYN-101",
+  "courseId": "C-LOAD",
+  "hours": 2,
+  "llmMs": 86470,
+  "state": "approved",
+  "sourceStateSha256": "b97c64ad056c2dfca104847806b13c46b10cfd93a2ded822a9427de6ff859f27",
+  "renderer": "Unmodified renderDocs/renderReview from learning-ui.js",
+  "archive": true,
+  "newModelCall": false,
+  "stateUnchanged": true,
+  "errors": []
+}

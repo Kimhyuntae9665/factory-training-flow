@@ -1,0 +1,5 @@
+workerId,displayName,role,qualifications,completedCourses
+SYN-101,합성 작업자 A,자재 투입,,
+SYN-102,합성 작업자 B,품질 기록,SAFE-BASE,
+SYN-103,합성 작업자 C,설비 점검,SAFE-BASE|EQUIP-BASE,
+SYN-104,합성 작업자 D,품질 기록,,C-LOAD

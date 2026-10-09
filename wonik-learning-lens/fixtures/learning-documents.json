@@ -1,0 +1,18 @@
+{
+  "boundary": "모든 문서와 인력은 합성 데모 자료이며 원익의 실제 SOP, 교육과정, 인사정보가 아닙니다.",
+  "documents": [
+    {"id":"SOP-LOAD-2","key":"SOP-LOAD","version":"2.0","section":"3. 작업 전 점검","status":"current","title":"합성 자재 투입 SOP","text":"자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.","keywords":["자재","투입","라벨"]},
+    {"id":"SOP-LOAD-1","key":"SOP-LOAD","version":"1.0","section":"3. 작업 전 점검","status":"superseded","title":"합성 자재 투입 SOP 구버전","text":"폐기 버전. 현재 교육계획의 근거로 사용하지 않는다.","keywords":["자재","투입"]},
+    {"id":"SOP-QUALITY-1","key":"SOP-QUALITY","version":"1.0","section":"4. 검사 기록","status":"current","title":"합성 품질 기록 SOP","text":"검사 기준값과 실제 측정값을 구분하고 불일치를 기록한다. 품질 기록 교육은 기초 안전 확인 자격을 보유한 작업자에게 계획할 수 있다.","keywords":["품질","검사","기록","측정"]},
+    {"id":"SOP-MAINT-1","key":"SOP-MAINT","version":"1.0","section":"2. 정지 후 점검","status":"current","title":"합성 설비 점검 SOP","text":"설비 점검 교육은 기초 안전 확인 자격과 설비 기초 자격을 보유한 작업자에게 계획할 수 있다. 교육계획 저장은 점검 작업 권한을 부여하지 않는다.","keywords":["설비","점검","정지"]},
+    {"id":"QUAL-1","key":"QUAL","version":"1.0","section":"2. 교육 수강 조건","status":"current","title":"합성 교육·자격 규정","text":"자재 투입 기초: 필수 자격 없음. 품질 기록 기초: SAFE-BASE 필수. 설비 점검 기초: SAFE-BASE와 EQUIP-BASE 필수. 교육계획 확정은 이수나 자격 취득을 의미하지 않는다.","keywords":["교육","자격","안전"]},
+    {"id":"COURSE-LOAD-1","key":"COURSE-LOAD","version":"1.0","section":"1. 과정 정의","status":"current","title":"합성 자재 투입 기초 과정","text":"자재 투입 기초 과정은 라벨 대조, 투입 순서, 투입 기록 실습으로 구성된다. 교육 시간 2시간. 선수 자격 없음.","courseId":"C-LOAD","keywords":["자재","투입","라벨"]},
+    {"id":"COURSE-QUALITY-1","key":"COURSE-QUALITY","version":"1.0","section":"1. 과정 정의","status":"current","title":"합성 품질 기록 기초 과정","text":"품질 기록 기초 과정은 검사 기준값 대조와 불일치 기록 실습으로 구성된다. 교육 시간 3시간. SAFE-BASE 필수.","courseId":"C-QUALITY","keywords":["품질","검사","기록","측정"]},
+    {"id":"COURSE-MAINT-1","key":"COURSE-MAINT","version":"1.0","section":"1. 과정 정의","status":"current","title":"합성 설비 점검 기초 과정","text":"설비 점검 기초 과정은 설비 정지 확인과 점검표 작성 실습으로 구성된다. 교육 시간 4시간. SAFE-BASE와 EQUIP-BASE 필수.","courseId":"C-MAINT","keywords":["설비","점검","정지"]}
+  ],
+  "courses": [
+    {"id":"C-LOAD","title":"자재 투입 기초","hours":2,"requiredQualifications":[],"evidenceIds":["SOP-LOAD-2","QUAL-1","COURSE-LOAD-1"]},
+    {"id":"C-QUALITY","title":"품질 기록 기초","hours":3,"requiredQualifications":["SAFE-BASE"],"evidenceIds":["SOP-QUALITY-1","QUAL-1","COURSE-QUALITY-1"]},
+    {"id":"C-MAINT","title":"설비 점검 기초","hours":4,"requiredQualifications":["SAFE-BASE","EQUIP-BASE"],"evidenceIds":["SOP-MAINT-1","QUAL-1","COURSE-MAINT-1"]}
+  ]
+}

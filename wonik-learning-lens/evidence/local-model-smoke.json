@@ -1,0 +1,43 @@
+{
+  "synthetic": true,
+  "separateTemporaryState": true,
+  "plans": 0,
+  "observations": [
+    {
+      "workerId": "SYN-101",
+      "courseId": "C-LOAD",
+      "llmMs": 34060,
+      "state": "awaiting_approval",
+      "evidenceIds": [
+        "SOP-LOAD-2",
+        "QUAL-1",
+        "COURSE-LOAD-1"
+      ],
+      "llmModel": "Qwen3-4B-Q4_K_M"
+    },
+    {
+      "workerId": "SYN-102",
+      "courseId": "C-QUALITY",
+      "llmMs": 23045,
+      "state": "awaiting_approval",
+      "evidenceIds": [
+        "SOP-QUALITY-1",
+        "QUAL-1",
+        "COURSE-QUALITY-1"
+      ],
+      "llmModel": "Qwen3-4B-Q4_K_M"
+    },
+    {
+      "workerId": "SYN-103",
+      "courseId": "C-MAINT",
+      "llmMs": 25232,
+      "state": "awaiting_approval",
+      "evidenceIds": [
+        "SOP-MAINT-1",
+        "QUAL-1",
+        "COURSE-MAINT-1"
+      ],
+      "llmModel": "Qwen3-4B-Q4_K_M"
+    }
+  ]
+}

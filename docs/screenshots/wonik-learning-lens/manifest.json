@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-10",
+  "synthetic": true,
+  "screenshots": [
+    {
+      "file": "docs/screenshots/wonik-learning-lens/factory.png",
+      "source": "outputs/wonik-learning-lens/evidence/factory.jpg",
+      "sourceSha256": "10ff032aa67503a0d4ef3f3f7879ea595d8c53d0d0518ec9f5cac465772548fd",
+      "sha256": "ae281e3e319b3f6b232eb2a983fd507b332f913b7e198a7e8742179c3a89bae0",
+      "frame": "10px white padding + 2px navy outside all four source edges",
+      "sourcePixelsPreserved": true,
+      "archiveReplay": false
+    },
+    {
+      "file": "docs/screenshots/wonik-learning-lens/review.png",
+      "source": "work/wonik-portfolio-v2/review.jpg",
+      "sourceSha256": "a489d0538d4349305dbb820415c8acfc8aa1a1e39f499c1e6b1e6876dd0b236d",
+      "sha256": "7ebe060777d139d1ee04ef4c9193e335a00bc767a39820ef2653121408997be5",
+      "frame": "10px white padding + 2px navy outside all four source edges",
+      "sourcePixelsPreserved": true,
+      "archiveReplay": true
+    },
+    {
+      "file": "docs/screenshots/wonik-learning-lens/plans.png",
+      "source": "outputs/wonik-learning-lens/evidence/plans.jpg",
+      "sourceSha256": "84498551a090b7d00363f596c7a34079ab225aea07133cadcbe553e89a26ec7f",
+      "sha256": "49d24d4ed8d5cd368e9bad15859780685484c78c0aff161bad7ea3e2eab4cfe7",
+      "frame": "10px white padding + 2px navy outside all four source edges",
+      "sourcePixelsPreserved": true,
+      "archiveReplay": false
+    },
+    {
+      "file": "docs/screenshots/wonik-learning-lens/blocked.png",
+      "source": "outputs/wonik-learning-lens/evidence/blocked.jpg",
+      "sourceSha256": "e46309d4e41cae07df7f4daf872cf93d2444969f63a880310c192392f1b33b5b",
+      "sha256": "5e59e84d6f121c50813a33654e3b5203516d64e26e82ef583342bbe463bd97ac",
+      "frame": "10px white padding + 2px navy outside all four source edges",
+      "sourcePixelsPreserved": true,
+      "archiveReplay": false
+    }
+  ]
+}

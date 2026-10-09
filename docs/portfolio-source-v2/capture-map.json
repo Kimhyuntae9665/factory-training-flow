@@ -1,0 +1,92 @@
+{
+  "factory": {
+    "file": "factory.jpg",
+    "imageSize": [
+      865,
+      610
+    ],
+    "regions": {
+      "process": [
+        420,
+        140,
+        305,
+        242
+      ],
+      "burden": [
+        227,
+        382,
+        308,
+        47
+      ],
+      "replay": [
+        263,
+        569,
+        505,
+        33
+      ]
+    }
+  },
+  "review": {
+    "file": "review.jpg",
+    "imageSize": [
+      1107,
+      716.15625
+    ],
+    "regions": {
+      "course": [
+        23,
+        153.328125,
+        1061,
+        32.546875
+      ],
+      "evidence": [
+        23,
+        290.703125,
+        1061,
+        159.171875
+      ],
+      "approval": [
+        23,
+        609.90625,
+        433.421875,
+        47.25
+      ]
+    }
+  },
+  "plans": {
+    "file": "plans.jpg",
+    "imageSize": [
+      626,
+      271
+    ],
+    "regions": {
+      "plan": [
+        23,
+        120,
+        579,
+        127
+      ],
+      "export": [
+        477,
+        23,
+        125,
+        47
+      ]
+    }
+  },
+  "blocked": {
+    "file": "blocked.jpg",
+    "imageSize": [
+      1107,
+      219
+    ],
+    "regions": {
+      "blocked": [
+        23,
+        99,
+        1060,
+        59
+      ]
+    }
+  }
+}
