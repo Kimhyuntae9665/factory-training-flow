@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "boundary": "개발자가 작성한 소규모 합성 시연 평가입니다. 실제 직원 자료·HR 담당자의 정답·독립 홀드아웃 벤치마크가 아닙니다.",
+  "cases": [
+    {"id":"E01","category":"literal","worker":"SYN-101","query":"자재 투입 교육을 계획해 주세요.","expected":"C-LOAD"},
+    {"id":"E02","category":"literal","worker":"SYN-102","query":"품질 검사 기록 교육을 받고 싶습니다.","expected":"C-QUALITY"},
+    {"id":"E03","category":"literal","worker":"SYN-103","query":"설비 정지 후 점검 교육을 계획해 주세요.","expected":"C-MAINT"},
+    {"id":"E04","category":"literal","worker":"SYN-102","query":"자재 라벨 확인 순서를 배우고 싶습니다.","expected":"C-LOAD"},
+    {"id":"E05","category":"literal","worker":"SYN-102","query":"검사 기준과 측정값을 기록하는 교육이 필요합니다.","expected":"C-QUALITY"},
+    {"id":"E06","category":"literal","worker":"SYN-103","query":"설비 점검표 작성법을 배우고 싶습니다.","expected":"C-MAINT"},
+    {"id":"E07","category":"paraphrase","worker":"SYN-101","query":"새 직원이 물건을 넣을 때 바코드를 잘못 읽어요. 무엇부터 익히면 좋을까요?","expected":"C-LOAD"},
+    {"id":"E08","category":"paraphrase","worker":"SYN-102","query":"기준 숫자와 실제 숫자를 대조하고 차이를 적는 방법을 배우고 싶어요.","expected":"C-QUALITY"},
+    {"id":"E09","category":"paraphrase","worker":"SYN-103","query":"기계를 멈춘 뒤 체크리스트대로 상태를 살피는 법을 익히고 싶어요.","expected":"C-MAINT"},
+    {"id":"E10","category":"paraphrase","worker":"SYN-101","query":"부품을 넣기 전에 표지와 바코드가 맞는지 보는 순서를 익히고 싶어요.","expected":"C-LOAD"},
+    {"id":"E11","category":"paraphrase","worker":"SYN-102","query":"완성품 숫자가 허용 범위를 벗어나면 그 차이를 남기는 법을 배우고 싶어요.","expected":"C-QUALITY"},
+    {"id":"E12","category":"paraphrase","worker":"SYN-103","query":"기계를 끈 다음 확인할 곳을 목록에 따라 살피는 방법이 필요해요.","expected":"C-MAINT"},
+    {"id":"E13","category":"negation","worker":"SYN-103","query":"설비 점검 교육은 원하지 않습니다. 검사 기준값과 실제 측정값의 차이를 기록하는 교육만 원합니다.","expected":"C-QUALITY"},
+    {"id":"E14","category":"negation","worker":"SYN-102","query":"검사 교육 말고 자재 라벨 대조와 투입 순서를 배우고 싶습니다.","expected":"C-LOAD"},
+    {"id":"E15","category":"ambiguous","worker":"SYN-103","query":"자재 투입과 검사 두 가지를 모두 배우고 싶습니다. 하나만 정해도 되는지는 모르겠습니다.","expected":"AMBIGUOUS"},
+    {"id":"E16","category":"qualification","worker":"SYN-101","query":"품질 측정 기록 교육을 원합니다.","expected":"BLOCK"},
+    {"id":"E17","category":"qualification","worker":"SYN-102","query":"설비 점검 교육을 원합니다.","expected":"BLOCK"},
+    {"id":"E18","category":"completed","worker":"SYN-104","query":"자재 투입 기초 교육을 다시 계획해 주세요.","expected":"BLOCK"},
+    {"id":"E19","category":"off_topic","worker":"SYN-103","query":"오늘 점심 메뉴를 추천해 주세요.","expected":"NO_MATCH"},
+    {"id":"E20","category":"conflict","worker":"SYN-101","query":"자재 투입 교육을 계획해 주세요.","policyScope":"conflict","expected":"BLOCK"}
+  ]
+}

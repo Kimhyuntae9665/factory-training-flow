@@ -15,3 +15,8 @@ simulator/web/vendor/* -text
 
 # Preserve inherited vendor / source manifests in the learning extension
 wonik-learning-lens/vendor/* -text -whitespace
+
+# Preserve the exact recorded v3 execution proof bytes, including line endings
+wonik-learning-lens/evidence/comparison-20261010-final/results.json -text
+wonik-learning-lens/evidence/n8n-20261010.json -text
+wonik-learning-lens/evidence/n8n-20261010/* -text

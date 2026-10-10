@@ -9,7 +9,7 @@ const root = fileURLToPath(new URL('.', import.meta.url));
 const port = Number(process.env.PORT || 8786);
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.csv': 'text/csv; charset=utf-8', '.json': 'application/json; charset=utf-8', '.md': 'text/plain; charset=utf-8' };
 const advisor = createAdvisorService();
-const learning = createLearningService({ endpoint: process.env.LINE_LENS_LLM_URL || 'http://127.0.0.1:8787/v1' });
+const learning = createLearningService({ endpoint: process.env.LINE_LENS_LLM_URL || 'http://127.0.0.1:8787/v1', ...(process.env.LEARNING_STATE_PATH ? { storagePath: resolve(process.env.LEARNING_STATE_PATH) } : {}) });
 const apiRoutes = new Set(['/api/advisor/status', '/api/advisor/interpret', '/api/advisor/recommend', '/api/learning/status', '/api/learning/context', '/api/learning/review', '/api/learning/decision', '/api/learning/plans', '/api/learning/export.csv']);
 function json(res, status, value) { res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }); res.end(JSON.stringify(value)); }
 async function body(req) {

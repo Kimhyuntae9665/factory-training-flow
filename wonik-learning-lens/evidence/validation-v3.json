@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-10",
+  "scope": "local synthetic prototype; no external publication this turn",
+  "validation": {
+    "functionalRegression": "56/56, exit0",
+    "comparison": "20 identical labelled requests each mode; rules12/20 LLM15/20; 18 actual calls; 21952ms median",
+    "browser": [
+      "rules review creates awaiting_approval without plan",
+      "input edit disables previous approval and clears review",
+      "reset preserves ledger and disabled approval",
+      "stored E16 semantic failure visible"
+    ],
+    "n8n": "3 executions success; approve adds1, reject/conflict add0; BOM normalized but content compared"
+  },
+  "portfolio": {
+    "pages": 3,
+    "file": "portfolio/김현태_원익홀딩스_LearningLens_v3.pdf",
+    "screenshots": "actual unmodified full-page captures; PDF clipping only",
+    "visual": "all 3 pages and 100 percent crops reviewed; outer four sides and 3 region rectangles/leaders each; P1guides below; no intersections/overlaps",
+    "independentReview": "PASS",
+    "prose": "light; 2 commas removed; change rate0.0005; gate exit0"
+  },
+  "publicationProjection": "Verification record from prior local v3 run. Publication copy omits resource probes, setup attempts and process metadata; comparison and n8n execution proofs are unchanged.",
+  "runtimeAfterVerification": "Model and n8n were stopped after evidence capture. New model calls require restarting them; archived proof viewers do not perform new executions."
+}

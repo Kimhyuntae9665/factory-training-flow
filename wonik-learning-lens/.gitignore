@@ -9,3 +9,8 @@ coverage/
 downloads/
 .learning-state.json
 .learning-state.json.*
+
+.state-*.json
+*.gguf
+*.sqlite*
+.n8n/

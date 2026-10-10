@@ -6,8 +6,11 @@ export async function initLearningUI({ getSimulationSummary } = {}) {
   const panel = document.querySelector('#learning-panel'); if (!panel) return;
   const find = id => panel.querySelector('#learning-' + id);
   const workerSelect = find('worker'), progress = find('progress'), result = find('review-result');
-  let contextData, activeReview, working = false;
-  function setBusy(value) { working = value; find('review').disabled = value; if (find('reset')) find('reset').disabled = value; find('worker').disabled = value; find('scope').disabled = value; find('query').disabled = value; find('approve').disabled = value || activeReview?.state !== 'awaiting_approval'; find('reject').disabled = value || activeReview?.state !== 'awaiting_approval'; }
+  const modeSelect = find('mode') || element('select');
+  if (!find('mode')) { modeSelect.id = 'learning-mode'; const label = element('label', '선택 방식'); label.htmlFor = modeSelect.id; for (const [value, text] of [['llm', '로컬 LLM · 자연어 의미 선택'], ['rules', '규칙 기준선 · 정확 키워드']]) { const option = element('option', text); option.value = value; modeSelect.append(option); } (panel.querySelector('label[for="learning-query"]') || find('query')).before(label, modeSelect); }
+  modeSelect.value = 'llm';
+  let contextData, activeReview, working = false, inputRevision = 0;
+  function setBusy(value) { working = value; find('review').disabled = value; if (find('reset')) find('reset').disabled = value; find('worker').disabled = value; find('scope').disabled = value; modeSelect.disabled = value; find('query').disabled = value; find('approve').disabled = value || activeReview?.state !== 'awaiting_approval'; find('reject').disabled = value || activeReview?.state !== 'awaiting_approval'; }
   function message(node, text, error = false) { node.textContent = text; node.classList.toggle('learning-error', error); }
   function renderWorker() { const worker = contextData?.roster.find(item => item.workerId === workerSelect.value); const box = find('worker-context'); box.replaceChildren(); if (!worker) return; box.append(element('p', `현재 역할: ${worker.role}`), element('p', `현재 자격: ${worker.qualifications.join(', ') || '없음'}`), element('p', `기이수 과정: ${worker.completedCourses.join(', ') || '없음'}`)); }
   function renderDocs(target, docs, columns = false) { const wrapper = element('div', undefined, columns ? 'learning-evidence-grid' : 'learning-document-list'); for (const doc of docs) { const box = element('div', undefined, 'learning-source'); box.append(element('strong', doc.title), element('p', `${doc.id} · v${doc.version} · ${doc.section} · ${doc.status === 'current' ? '현행' : '구버전 제외'}`, 'learning-meta'), element('p', doc.text)); wrapper.append(box); } target.append(wrapper); }
@@ -15,11 +18,15 @@ export async function initLearningUI({ getSimulationSummary } = {}) {
     result.replaceChildren();
     const meta = element('div', undefined, 'learning-review-meta');
     meta.append(element('p', `요청 ${review.requestId}`, 'learning-muted'), element('p', `${review.worker.displayName} (${review.worker.workerId}) · 현재 자격 ${review.worker.qualifications.join(', ') || '없음'}`)); result.append(meta);
-    if (review.proposal) { const heading = element('div', undefined, 'learning-proposal-heading'); heading.append(element('h3', `${review.proposal.title} · ${review.proposal.hours}시간`), element('p', `자격·현행 근거 코드 검증 통과 · 실제 LLM 응답 ${review.llmMs.toLocaleString()} ms (${review.llmModel})`, 'learning-success')); result.append(heading, element('p', review.proposal.reason)); }
-    else result.append(element('p', `${review.code}: ${review.message}`, 'learning-error'), element('p', 'LLM 호출 없음 · 교육계획 저장 없음', 'learning-muted'));
+    const rulesMode = review.selectionMode === 'rules' || review.mode === 'rules';
+    const selectionLabel = rulesMode ? '규칙 기준선 · 정확 키워드' : '로컬 LLM · 자연어 의미 선택';
+    const modelLabel = review.llmStatus === 'not_called' || rulesMode ? 'LLM 호출 없음' : `실제 LLM 응답 ${review.llmMs.toLocaleString()} ms (${review.modelId || review.llmModel})`;
+    meta.append(element('p', `${selectionLabel} · ${modelLabel}`, 'learning-muted'));
+    if (review.proposal) { const heading = element('div', undefined, 'learning-proposal-heading'); heading.append(element('h3', `${review.proposal.title} · ${review.proposal.hours}시간`), element('p', '선수 자격·기이수·현행 필수 근거 코드 검증 통과', 'learning-success')); result.append(heading, element('p', review.proposal.reason)); }
+    else result.append(element('p', `${review.code}: ${review.message}`, 'learning-error'), element('p', '교육계획 저장 없음', 'learning-muted'));
     const evidenceIds = element('div', undefined, 'learning-evidence-ids');
-    evidenceIds.append(element('p', `키워드 검색 후보: ${(review.retrievedEvidence || review.evidence).map(doc => doc.id).join(', ') || '없음'}`, 'learning-muted'), element('p', `LLM 선택 근거: ${review.proposal?.evidenceIds.join(', ') || '모델 호출 없음'}`, 'learning-muted')); result.append(evidenceIds);
-    result.append(element('h4', review.proposal ? 'LLM이 선택하고 코드가 검증한 근거' : '검색 근거')); renderDocs(result, review.evidence, true);
+    evidenceIds.append(element('p', `${rulesMode ? '키워드 검색 후보' : '모델 입력 · 전체 현행 문서'}: ${(review.retrievedEvidence || review.evidence).map(doc => doc.id).join(', ') || '없음'}`, 'learning-muted'), element('p', `${rulesMode ? '규칙 선택 근거' : 'LLM 선택 근거'}: ${review.proposal?.evidenceIds.join(', ') || '선택 없음'}`, 'learning-muted')); result.append(evidenceIds);
+    result.append(element('h4', review.proposal ? `${rulesMode ? '규칙' : 'LLM'}이 선택하고 코드가 검증한 근거` : '현행 참고 근거')); renderDocs(result, review.evidence, true);
     if (review.excludedOld?.length) result.append(element('p', `제외한 구버전: ${review.excludedOld.map(doc => `${doc.id} v${doc.version}`).join(', ')}`, 'learning-muted'));
     result.append(element('h4', '공정 참고 · 교육성과와 분리'));
     result.append(element('p', '현재 3D 공정 요약은 읽기 전용 참고입니다. 교육 추천에는 공정 생산량 효과 계수를 적용하지 않습니다.', 'learning-muted'));
@@ -34,20 +41,29 @@ export async function initLearningUI({ getSimulationSummary } = {}) {
     } else result.append(element('p', '공정 요약 없음 · 교육 검토는 독립 실행됩니다.', 'learning-muted'));
     find('evidence').disabled = false; setBusy(false);
   }
-  async function renderPlans() { const data = await api('plans'); const box = find('plans'); box.replaceChildren(); if (!data.plans.length) box.append(element('p', '아직 승인된 교육계획이 없습니다.', 'learning-muted')); for (const plan of data.plans) { const row = element('div', undefined, 'learning-plan'); row.append(element('strong', `${plan.workerId} · ${plan.courseTitle}`), element('p', `${plan.hours}시간 · ${new Date(plan.plannedAt).toLocaleString('ko-KR')}`), element('p', '교육계획 확정 · 이수/자격 취득 아님'), element('p', `근거: ${plan.evidenceIds.join(', ')}`, 'learning-muted')); box.append(row); } }
+  async function renderPlans() { const data = await api('plans'); const box = find('plans'); box.replaceChildren(); if (!data.plans.length) box.append(element('p', '아직 승인된 교육계획이 없습니다.', 'learning-muted')); for (const plan of data.plans) { const row = element('div', undefined, 'learning-plan'); row.append(element('strong', `${plan.workerId} · ${plan.courseTitle}`), element('p', `${plan.hours}시간 · ${new Date(plan.plannedAt).toLocaleString('ko-KR')}`), element('p', '교육계획 확정 · 이수/자격 취득 아님'), element('p', `선택 방식: ${plan.selectionMode || '기존 기록'}${plan.modelId ? ` · ${plan.modelId}` : ''}`, 'learning-muted'), element('p', `근거: ${plan.evidenceIds.join(', ')}`, 'learning-muted')); box.append(row); } }
   async function modelStatus() {
     const badge = find('model-status');
     try { const status = await api('status'); badge.textContent = status.reachable ? `로컬 ${status.model} 연결됨` : '로컬 모델 연결 안 됨'; badge.title = status.error?.message || status.endpoint; }
     catch (error) { badge.textContent = '모델 상태 재조회 실패'; badge.title = error.message; }
   }
-  workerSelect.addEventListener('change', renderWorker);
+  function invalidateReview() {
+    inputRevision += 1; activeReview = null; find('evidence').disabled = true;
+    result.replaceChildren(element('p', '입력이 변경되었습니다. 현재 조건으로 다시 검토해 주세요.', 'learning-muted'));
+    message(progress, '입력 변경 · 이전 검토의 승인·거절과 근거 다운로드를 해제했습니다.'); setBusy(working);
+  }
+  for (const node of [workerSelect, find('scope'), modeSelect, find('query')]) {
+    node.addEventListener('input', invalidateReview);
+    node.addEventListener('change', () => { if (node === workerSelect) renderWorker(); invalidateReview(); });
+  }
   find('reset')?.addEventListener('click', () => {
-    if (working) return; activeReview = null; find('scope').value = 'current'; find('query').value = '자재 투입과 라벨 확인을 익힐 교육을 계획해 주세요.'; workerSelect.selectedIndex = 0; renderWorker(); result.replaceChildren(element('p', '요청을 검토하면 과정·시간·현행 근거와 자격 검증 결과를 표시합니다.', 'learning-muted')); find('evidence').disabled = true; message(progress, '새 요청 준비 완료 · 저장된 원장은 유지됩니다.'); message(find('decision-status'), ''); setBusy(false);
+    if (working) return; activeReview = null; modeSelect.value = 'llm'; find('scope').value = 'current'; find('query').value = '자재 투입과 라벨 확인을 익힐 교육을 계획해 주세요.'; workerSelect.selectedIndex = 0; renderWorker(); result.replaceChildren(element('p', '요청을 검토하면 과정·시간·현행 근거와 자격 검증 결과를 표시합니다.', 'learning-muted')); find('evidence').disabled = true; message(progress, '새 요청 준비 완료 · 저장된 원장은 유지됩니다.'); message(find('decision-status'), ''); setBusy(false);
   });
   find('form').addEventListener('submit', async event => {
-    event.preventDefault(); if (working) return; activeReview = null; setBusy(true); find('evidence').disabled = true; message(find('decision-status'), ''); message(progress, '현행 문서 검색 → 로컬 모델 선택 → 규정 검증 중…');
-    try { const currentSimulation = getSimulationSummary ? getSimulationSummary() : null; activeReview = await api('review', { requestId: crypto.randomUUID(), selectedWorkerId: workerSelect.value, query: find('query').value, policyScope: find('scope').value, currentSimulation }); renderReview(activeReview); message(progress, activeReview.state === 'blocked' ? activeReview.message : '검토 완료. 근거와 현재 자격을 확인한 후 결정해 주세요.', activeReview.state === 'blocked'); }
-    catch (error) { activeReview = null; find('evidence').disabled = true; result.replaceChildren(element('p', `${error.code || 'ERROR'}: ${error.message}`, 'learning-error')); message(progress, '검토 실패 · 모델 대체 결과나 계획 저장 없음', true); setBusy(false); return; }
+    event.preventDefault(); if (working) return; activeReview = null; setBusy(true); find('evidence').disabled = true; message(find('decision-status'), ''); message(progress, modeSelect.value === 'rules' ? '정확 키워드 검색 → 규정 검증 중…' : '전체 현행 문서 → 로컬 모델 의미 선택 → 규정 검증 중…');
+    const submittedRevision = ++inputRevision;
+    try { const currentSimulation = getSimulationSummary ? getSimulationSummary() : null; const review = await api('review', { requestId: crypto.randomUUID(), selectedWorkerId: workerSelect.value, query: find('query').value, policyScope: find('scope').value, mode: modeSelect.value, currentSimulation }); if (submittedRevision !== inputRevision) { setBusy(false); return; } activeReview = review; renderReview(activeReview); message(progress, activeReview.state === 'blocked' ? activeReview.message : '검토 완료. 근거와 현재 자격을 확인한 후 결정해 주세요.', activeReview.state === 'blocked'); }
+    catch (error) { if (submittedRevision !== inputRevision) { setBusy(false); return; } activeReview = null; find('evidence').disabled = true; result.replaceChildren(element('p', `${error.code || 'ERROR'}: ${error.message}`, 'learning-error')); message(progress, '검토 실패 · 모델 대체 결과나 계획 저장 없음', true); setBusy(false); return; }
     void modelStatus();
   });
   for (const action of ['approve', 'reject']) find(action).addEventListener('click', async () => {

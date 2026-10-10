@@ -1,0 +1,28 @@
+{
+  "screenshots": [
+    {
+      "file": "factory-full.jpg",
+      "sha256": "800bb7e894a86b67c19fb1ef75869d9a3607293f76ed65f20d4e935594a88c79",
+      "source": "actual local browser full-page screenshot",
+      "date": "2026-10-10",
+      "edited": false
+    },
+    {
+      "file": "comparison-full.jpg",
+      "sha256": "338f8a07e81773dbb29878212d9f30ac6b374fb820d02c473fb060e695b14990",
+      "source": "actual local browser full-page screenshot",
+      "date": "2026-10-10",
+      "edited": false
+    },
+    {
+      "file": "n8n-full.jpg",
+      "sha256": "1957859210b1d0b6277bfd087c57ee186ff354b2023850528841da8a00a8983f",
+      "source": "actual local browser full-page screenshot",
+      "date": "2026-10-10",
+      "edited": false
+    }
+  ],
+  "portfolio": "docs/portfolio.pdf uses cropped source pixels, external borders and explanatory rectangles/leaders",
+  "synthetic": true,
+  "recordViewer": "comparison and n8n screens read real stored execution records; no new LLM call when viewed; n8n screen is a custom viewer"
+}

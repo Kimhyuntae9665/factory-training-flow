@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-10",
+  "scope": "Publication of previously verified local synthetic v3; no new LLM or n8n executions during publication",
+  "functionalTests": {
+    "total": 56,
+    "passed": 56,
+    "failed": 0,
+    "copiedRepositoryRun": true,
+    "log": "publication-tests.txt"
+  },
+  "portfolio": {
+    "pages": 3,
+    "pdfSha256": "f11b8c9e2154c53d294824aa4d0c52053ec5ca7ffd89ff6e9ae4a9752de6347d",
+    "sourceAndPublishedCopiesIdentical": true,
+    "jobLinkSentenceOnEveryPage": true,
+    "visualReview": "Unchanged v3 page bytes; prior all-page and 100-percent visual review preserved in final-review.md"
+  },
+  "screenshots": {
+    "originalFullPageBytesPreserved": true,
+    "publishedPageBytesPreserved": true
+  },
+  "comparison": {
+    "rows": 40,
+    "rulesCorrect": 12,
+    "llmCorrect": 15,
+    "actualModelCalls": 18,
+    "medianModelMs": 21952,
+    "fourProvenanceHashesMatch": true
+  },
+  "n8n": {
+    "successfulExecutions": 3,
+    "newPlansByCase": [
+      1,
+      0,
+      0
+    ],
+    "allRecordedChecksTrue": true,
+    "rawProofsPreserved": true,
+    "decisions": "explicit synthetic test POSTs"
+  },
+  "localMarkdownLinks": {
+    "checked": 86,
+    "missing": 0
+  },
+  "publicationScan": {
+    "changedFilesChecked": 62,
+    "runtimeOrModelFilesIncluded": false,
+    "knownCredentialPatternsDetected": false,
+    "rawProofsByteIdentical": true,
+    "stagedProofBytesAndProvenanceHashesChecked": true
+  },
+  "recordProjection": "validation-v3.json omits resource probes and process metadata; execution proofs remain unchanged",
+  "reproductionScriptPublicationChange": "Output routing only: fresh timestamp folder by default, results.json in output folder, relative trace filenames. Python syntax checked; n8n not rerun after this publication change."
+}

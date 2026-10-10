@@ -1,94 +1,98 @@
 # Factory Training Flow · 원익 HR Data & AI 프로젝트
 
-공고의 **교육 분야 AI 과제 발굴·LLM 자동화 도입·HR 데이터 정제** 업무를 위해, 공정 시뮬레이션과 근거 기반 교육계획 검토를 연결한 개인 데모입니다. 기존 n8n 버전과 Line Lens 기반 확장을 함께 보관합니다.
+공고의 **교육 분야 AI 과제 발굴·LLM 자동화 도입·HR 데이터 정제** 업무를 위해, 공정 시뮬레이션을 관찰하고 합성 교육 요청을 현행 근거와 대조해 검토·저장하는 개인 데모를 만들었습니다.
 
-## 최신 포트폴리오 · 2026.10.10
+## 최신 포트폴리오 v3 · 2026.10.10
 
-**공장 관찰 → 같은 교육 요청의 AI·규정 검토 → 담당자 승인·저장과 예외 비교**를 3페이지로 설명합니다. 합성 작업자 **SYN-101 / 자재 투입 기초(C-LOAD) / 2시간** 요청이 모든 장에서 이어집니다.
+**① 공정 관찰과 교육 요청 ② 규칙과 로컬 LLM의 실제 비교 ③ n8n 입력·검토 대기·결정·출력 검증**을 3페이지로 설명합니다. 최신 구현은 [Wonik Learning Lens](wonik-learning-lens/README.md)입니다.
 
-[3페이지 PDF](docs/portfolio.pdf) · [1장](docs/portfolio-page-1.png) · [2장](docs/portfolio-page-2.png) · [3장](docs/portfolio-page-3.png) · [편집 원본과 검수](docs/portfolio-source-v2/README.md)
+[3페이지 PDF](docs/portfolio.pdf) · [1장](docs/portfolio-page-1.png) · [2장](docs/portfolio-page-2.png) · [3장](docs/portfolio-page-3.png) · [편집 자료와 검수](docs/portfolio-source-v3/README.md)
 
-![1장: 공정 관찰과 자재 투입 교육 요청](docs/portfolio-page-1.png)
+![1장: 공정 관찰과 교육계획 검토](docs/portfolio-page-1.png)
 
 <details>
-<summary>2·3장 보기 — 같은 요청의 검토·저장과 실제 예외 처리 결과</summary>
+<summary>2·3장 보기 — 규칙/LLM 비교와 실제 n8n 입출력</summary>
 
-![2장: 실제 교육안과 근거·승인 상태 확인](docs/portfolio-page-2.png)
+![2장: 같은 요청의 규칙/LLM 비교와 오답 검토](docs/portfolio-page-2.png)
 
-![3장: 동일 요청 저장과 정상·중복·규정 충돌 비교](docs/portfolio-page-3.png)
+![3장: 실제 n8n 입출력과 승인·거절·차단 검증](docs/portfolio-page-3.png)
 
 </details>
 
-2장의 **86.47초**는 2026.10.09 해당 요청의 실제 로컬 모델 응답 시간입니다. 화면은 저장된 응답을 앱의 원본 렌더러로 재열람한 기록이며 새 모델 실행이나 승인 대기 화면으로 표현하지 않습니다. 3장의 비교 결과도 기존 실제 검수 기록입니다. 모든 화면에 외곽 네 변 테두리를 표시하고, 설명 대상은 얇은 사각형과 연결선으로 구분했습니다.
+모든 주요 화면에 바깥 네 변 테두리, 설명 대상의 얇은 사각형과 연결선을 넣었습니다. 화면은 실제 실행 기록을 재열람한 캡처입니다. n8n 결과 화면은 **직접 만든 실행 증거 뷰어**이며 n8n 편집기 UI가 아닙니다.
 
-## 두 구현의 차이와 실행 위치
+## 실제 규칙·LLM 비교
 
-| 항목 | 최신 교육 근거 검토 확장 | 기존 n8n 공정 비교 버전 |
+동일한 **개발자 작성 합성 요청 20개**를 두 방식으로 실행했습니다. [전체 40개 결과·응답·해시](wonik-learning-lens/evidence/comparison-20261010-final/results.json), [평가 문항](wonik-learning-lens/evaluation/cases.json), [평가 코드](wonik-learning-lens/evaluation/evaluate.mjs)를 공개합니다.
+
+| 방식 | 개발자 라벨 일치 | 실제 모델 호출 | 모델 응답시간 중앙값 |
+|---|---|---|---|
+| 정확 키워드 규칙 | 12/20 | 0 | 해당 없음 |
+| 로컬 Qwen3-4B-Q4_K_M | 15/20 | 18 | 21,952ms |
+
+규칙은 현행 문서의 정확 키워드를 찾고, LLM은 현행 문서 7개와 허용 과정 목록에서 요청의 의미를 해석합니다. 코드가 응답 구조·선수 자격·기이수·필수 근거를 다시 검사합니다. 현행 규정 충돌·수강 가능 과정 없음은 모델 호출 전에 차단했습니다. 임베딩·벡터 검색은 사용하지 않았습니다.
+
+**실행 오류·선택된 필수 근거 오류는 0건이지만 의미 선택 오답은 남았습니다.** LLM은 E11·E13에서 필요한 과정을 보류했고, E15의 모호한 요청을 선택했습니다. E16·E17에서는 요청한 과정의 자격이 없는데 다른 허용 과정을 선택했습니다. 코드상 수강 가능과 요청 의미의 적합성은 다르므로 승인 전 사람이 내용을 확인해야 합니다.
+
+20개 문항은 독립 홀드아웃이나 현업 정답이 아닙니다. 12/20과 15/20을 일반 정확도 우위로 확대하지 않습니다. 약 22초는 이 PC의 CPU·컨텍스트 3,072·스레드 2 실행에서 관측한 값이며 초기·후속 호출이 섞여 있습니다.
+
+## 실제 n8n 입출력 검증
+
+**n8n 2.42.3에서 3개 실행 모두 success**를 확인했습니다. [워크플로](wonik-learning-lens/workflow-learning.json), [검증 요약 JSON](wonik-learning-lens/evidence/n8n-20261010.json), [실행별 trace와 원본 CSV](wonik-learning-lens/evidence/n8n-20261010/), [검증 스크립트](wonik-learning-lens/scripts/n8n-verify.py)를 함께 보관합니다.
+
+정상 경로는 `Webhook → 검토 → IF → Wait → 명시적 결정 → 계획 JSON → CSV`의 7개 노드를 실행합니다. 검증에서는 **합성 테스트 승인·거절 POST**를 명시적으로 보냈으며 실제 직원이나 HR 담당자의 승인 실적이 아닙니다.
+
+| 사례 / 실행 ID | 실제 확인 결과 | 해당 요청의 새 계획 |
 |---|---|---|
-| 코드 위치 | [wonik-learning-lens/](wonik-learning-lens/README.md) | 저장소 루트·`simulator/`·`web/` |
-| 핵심 과업 | 현행 문서와 자격을 확인한 교육안 검토·승인 원장 | 공정 대안 비교·n8n Wait·결정 기록 |
-| 실제 로컬 LLM | Qwen3-4B-Q4_K_M / llama.cpp | Qwen2.5-1.5B-Instruct / Transformers |
-| 계산·저장 | seed 공정 계산 / JSON 원장·CSV | SimPy / SQLite |
-| 문서 검색 | 현행 필터 + 정확 키워드 매칭, 임베딩 미사용 | RAG 구현 없음 |
-| n8n 검증 | API·Wait·저장 **미실행 템플릿** | 실제 n8n 실행 3건·모델 요청 2건 기록 |
-| 교육 성과 | 계획만 저장, 이수·자격 부여 및 생산량 효과 미측정 | 검사 교육 효과는 사전 정의한 합성 가정 |
+| LLM 요청 승인 / 1 | Wait 전 계획 없음 → 승인 POST → JSON·CSV 출력 | +1건 |
+| 규칙 요청 거절 / 2 | Wait 전 새 계획 없음 → 거절 POST → JSON·CSV 출력 | +0건 |
+| 현행 규정 충돌 / 3 | 모델·Wait·결정·CSV 없이 차단 종료 | +0건 |
 
-**두 버전의 모델·실행 증거·교육 효과 가정을 합산하지 않습니다.** 최신 포트폴리오는 왼쪽의 교육 근거 검토 확장을 설명합니다. 원익 내부 시스템·실제 직원 자료·현장 성과가 아니며, 실제 공장과 연결·실측 보정한 디지털 트윈 구축 경력으로 제시하지 않습니다.
+계획 JSON은 앱의 파일 원장과 일치했습니다. n8n HTTP 텍스트 출력이 API CSV의 맨 앞 UTF-8 BOM을 제거했으므로 **선택적인 맨 앞 BOM만 제외하고 본문·행을 비교**했습니다. `transportMetadata.csv_bom_preserved:false`와 원본 출력도 증거에 남겼습니다. 로컬 loopback 연계만 검증했으며 실제 LMS·HR DB 연결, 사내 인증·운영 배포는 구현 범위 밖입니다.
 
-최신 확장 실행:
+## 실행하기
 
 ```powershell
 git clone https://github.com/Kimhyuntae9665/factory-training-flow.git
 cd factory-training-flow/wonik-learning-lens
-$env:PORT = '8786'
-$env:LINE_LENS_LLM_URL = 'http://127.0.0.1:8787/v1'
+$env:PORT = '8798'
+$env:LINE_LENS_LLM_URL = 'http://127.0.0.1:8797/v1'
 npm start
 ```
 
-Node.js 22 이상을 권장하며 npm 외부 의존성 설치 없이 실행합니다. [http://127.0.0.1:8786](http://127.0.0.1:8786)을 열고, AI 검토에는 별도의 llama.cpp·Qwen3 GGUF가 필요합니다. [상세 실행·사용 순서](wonik-learning-lens/README.md), [교육 API](wonik-learning-lens/docs/learning-api.md), [로컬 AI 설정](wonik-learning-lens/docs/local-ai-setup.md)을 확인하세요.
+Node.js 22 이상을 권장하며 앱은 npm 외부 의존성 설치 없이 실행합니다. [http://127.0.0.1:8798](http://127.0.0.1:8798)을 여세요. 규칙 검토와 공정 계산은 모델 없이 사용할 수 있습니다. LLM 검토에는 별도로 준비한 llama.cpp·Qwen3 GGUF가 필요합니다. n8n 실행 파일·상태 DB·모델 가중치는 저장소에 포함하지 않습니다. [모델·n8n 준비와 사용 순서](wonik-learning-lens/README.md), [교육 API](wonik-learning-lens/docs/learning-api.md)를 참고하세요.
 
-## 최신 확장의 실제 화면
+## 최신 스크린샷·검수 자료
 
-### 공정 관찰
+포트폴리오의 실제 원본 전체 화면을 별도로 제공합니다. PDF에서는 화면을 확대·크롭하고 설명 주석을 추가했으며 원본 캡처를 보존했습니다.
 
-![일반 부품 조립 공정의 근접 실행 화면](docs/screenshots/wonik-learning-lens/factory.png)
+- [공정과 교육 요청 전체 화면](docs/screenshots/wonik-learning-lens-v3/factory-full.jpg)
+- [규칙·LLM 비교 기록 전체 화면](docs/screenshots/wonik-learning-lens-v3/comparison-full.jpg)
+- [n8n 실행 증거 전체 화면](docs/screenshots/wonik-learning-lens-v3/n8n-full.jpg)
+- [캡처 출처·SHA-256](docs/screenshots/wonik-learning-lens-v3/manifest.json) · [레이아웃 검수](docs/portfolio-source-v3/layout-validation.json) · [최종 시각 검수](docs/portfolio-source-v3/final-review.md)
+- [56/56 자동 회귀 로그](wonik-learning-lens/evidence/tests-20261010.txt) · [v3 통합 검수 기록](wonik-learning-lens/evidence/validation-v3.json)
 
-*2026.10.09 실제 실행 캡처입니다. 공정 부하를 교육 필요의 자동 진단이나 실제 교육 효과로 해석하지 않습니다.*
+자동 테스트에는 mock 검증이 포함됩니다. 구조·입력 변경·저장·중복 결정·오류 처리를 확인하며 실제 모델 정확도나 n8n 실행 증거를 대신하지 않습니다. 공개용 복사본의 추가 검수는 [게시 검수 기록](docs/portfolio-source-v3/publication-validation.json)에 구분해 기록했습니다. 게시 과정에서 모델·n8n을 추가 실행한 것으로 합산하지 않습니다.
 
-### 같은 요청의 교육안·근거 검토
-
-![SYN-101의 자재 투입 기초 2시간 검토 기록 재열람](docs/screenshots/wonik-learning-lens/review.png)
-
-*현행 SOP·자격 규정·과정 정의를 검색하고, 실제 모델이 선택한 ID를 코드로 검사했습니다. 저장된 승인 완료 기록을 2026.10.10 재열람했으며 새 모델 호출은 없습니다.*
-
-### 승인 원장과 차단 결과
-
-![동일 요청의 승인 교육계획 원장](docs/screenshots/wonik-learning-lens/plans.png)
-
-*SYN-101 / C-LOAD / 2시간 계획 1건입니다. JSON 원장과 CSV에서 동일 요청·작업자·과정·시간을 대조했습니다. 근거 ID는 JSON 원장에 보존합니다.*
-
-![별도 현행 규정 충돌 요청의 차단 결과](docs/screenshots/wonik-learning-lens/blocked.png)
-
-*별도 충돌 요청은 LLM을 호출하지 않고 승인을 차단했으며 추가 계획은 0건입니다. 정상 사례와 서로 다른 요청임을 구분합니다.*
-
-### 실제 검증 결과
-
-| 사례 | 실제 확인 결과 | 계획 저장 |
-|---|---|---|
-| 정상 요청 승인 | 담당자가 승인 | 1건 |
-| 동일 요청 재승인 | 중복 저장 방지 | 1건 유지 |
-| 현행 규정 충돌 | LLM 무호출·승인 차단 | 추가 0건 |
-| 승인 후 반대 결정 | HTTP 409 | 1건 유지 |
-
-2026.10.09의 기존 검수는 **자동 검사 49/49(교육 추가 10건은 mock 포함), 통합 검수 14/14**입니다. 이번 포트폴리오 개편에서는 사례·시간·원장·CSV를 대조하고 3장 전체/100% 렌더링을 검수했습니다. 새 LLM·n8n 실행을 수행한 것으로 합산하지 않습니다. [실행 증거](wonik-learning-lens/evidence/live-validation.json), [포트폴리오 검수](docs/portfolio-source-v2/validation.md), [스크린샷 출처·해시](docs/screenshots/wonik-learning-lens/manifest.json)를 제공합니다.
-
-2026.10.10 GitHub 게시 준비에서는 복사한 `wonik-learning-lens` 소스의 자동 검사 **49/49를 다시 통과**했습니다. 별도 모델 추론·n8n 실행·14건 통합 검수는 재실행하지 않았습니다.
-
-## 제작 계기와 기여
+## 재사용·기여·한계
 
 LG전자 AX Workflow 교육 중 평택 공장 견학에서 디지털 트윈 기반 공장 시뮬레이션을 보고 직접 조건을 바꿔 시험해 보고 싶었습니다. 기존 Line Lens의 3D 화면·인원/속도/휴식 계산·로컬 LLM 연결을 재사용하고 원익 공고의 교육 업무를 위한 검색·검증·승인·원장 기능을 추가했습니다.
 
-본인은 방향·기능 제안과 화면·설명 검토를 맡았고, 구현·계산 검증에는 Codex의 지원을 받았습니다. [재사용과 추가 범위](wonik-learning-lens/docs/reuse-and-scope.md)를 구분했습니다. 교육의 실제 이수·자격 취득이나 현장 생산 개선 성과를 주장하지 않습니다.
+본인은 방향·기능 제안과 화면·설명 검토를 맡았고, 구현·계산 검증에는 Codex의 지원을 받았습니다. [재사용과 추가 범위](wonik-learning-lens/docs/reuse-and-scope.md)를 구분했습니다. 모든 공정·작업자·규정·과정은 합성입니다. 공정 화면은 교육 검토의 읽기 전용 참고이며 자동 교육 진단이나 교육 효과 계산으로 연결하지 않았습니다. 승인 시 **교육계획만 파일 원장에 저장**하고 이수·자격 부여·생산 효과는 부여하지 않습니다.
+
+[원익그룹 공식 공고](https://wonik.recruiter.co.kr/career/jobs/128767)는 2026-10-09 확인 기록 기준입니다. [원익로보틱스 디지털 트윈 사업](https://wonikrobotics.com/kr/sub/application/robotAutomation/digital_twin.php)은 계열사 사업 배경이며 HR 조직의 내부 시스템이나 n8n 사용 확인 근거가 아닙니다. 회사 내부 자료·실제 직원 데이터·현장 성과·실제 공장을 연결하고 보정한 디지털 트윈 경력으로 제시하지 않습니다.
+
+## 이전 버전 보관
+
+| 항목 | 최신 Learning Lens v3 | 기존 Factory Training Flow |
+|---|---|---|
+| 소스 | `wonik-learning-lens/` | 저장소 루트·`simulator/`·`web/` |
+| 과업 | 교육 요청의 의미·근거·자격 검토와 승인 원장 | 공정 대안 비교와 결정 기록 |
+| 로컬 LLM | Qwen3-4B / llama.cpp | Qwen2.5-1.5B / Transformers |
+| 계산·저장 | 기존 공정 계산 / JSON 파일 원장·CSV | SimPy / SQLite |
+| n8n | 실제 승인·거절·충돌 3건 | 별도의 기존 실제 실행 3건 |
+
+**두 구현의 실행·모델·교육 효과 가정을 합산하지 않습니다.** [Learning Lens v2 PDF](docs/archive/learning-lens-v2-20261010/portfolio.pdf), [v2 편집 자료](docs/portfolio-source-v2/README.md), 이전 실행 기록·스크린샷을 보존했습니다.
 
 ---
 

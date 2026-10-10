@@ -1,0 +1,1028 @@
+{
+  "version": 1,
+  "startData": {},
+  "resultData": {
+    "runData": {
+      "합성 요청 접수": [
+        {
+          "startTime": 1791592464502,
+          "executionIndex": 0,
+          "source": [],
+          "hints": [],
+          "executionTime": 0,
+          "executionStatus": "success",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "headers": {
+                      "accept-encoding": "identity",
+                      "content-length": "183",
+                      "host": "127.0.0.1:5697",
+                      "user-agent": "Python-urllib/3.12",
+                      "content-type": "application/json",
+                      "connection": "close"
+                    },
+                    "params": {},
+                    "query": {},
+                    "body": {
+                      "requestId": "33e777f8-0ffc-4950-8a8d-9b84dde3295e",
+                      "selectedWorkerId": "SYN-101",
+                      "query": "자재 투입 교육을 계획해 주세요.",
+                      "mode": "llm",
+                      "policyScope": "conflict"
+                    },
+                    "webhookUrl": "http://127.0.0.1:5697/webhook/wonik-learning",
+                    "executionMode": "production"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "교육 요청 검토": [
+        {
+          "startTime": 1791592464503,
+          "executionIndex": 1,
+          "source": [
+            {
+              "previousNode": "합성 요청 접수",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 22,
+          "executionStatus": "success",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "requestId": "33e777f8-0ffc-4950-8a8d-9b84dde3295e",
+                    "selectedWorkerId": "SYN-101",
+                    "query": "자재 투입 교육을 계획해 주세요.",
+                    "policyScope": "conflict",
+                    "mode": "llm",
+                    "selectionMode": "llm",
+                    "modelId": null,
+                    "worker": {
+                      "workerId": "SYN-101",
+                      "displayName": "합성 작업자 A",
+                      "role": "자재 투입",
+                      "qualifications": [],
+                      "completedCourses": [],
+                      "source": "fixtures/learning-roster.csv",
+                      "synthetic": true
+                    },
+                    "synthetic": true,
+                    "retrieval": "all-current-documents",
+                    "retrievedEvidence": [
+                      {
+                        "id": "SOP-LOAD-2",
+                        "key": "SOP-LOAD",
+                        "version": "2.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "SOP-QUALITY-1",
+                        "key": "SOP-QUALITY",
+                        "version": "1.0",
+                        "section": "4. 검사 기록",
+                        "status": "current",
+                        "title": "합성 품질 기록 SOP",
+                        "text": "검사 기준값과 실제 측정값을 구분하고 불일치를 기록한다. 품질 기록 교육은 기초 안전 확인 자격을 보유한 작업자에게 계획할 수 있다.",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "SOP-MAINT-1",
+                        "key": "SOP-MAINT",
+                        "version": "1.0",
+                        "section": "2. 정지 후 점검",
+                        "status": "current",
+                        "title": "합성 설비 점검 SOP",
+                        "text": "설비 점검 교육은 기초 안전 확인 자격과 설비 기초 자격을 보유한 작업자에게 계획할 수 있다. 교육계획 저장은 점검 작업 권한을 부여하지 않는다.",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "QUAL-1",
+                        "key": "QUAL",
+                        "version": "1.0",
+                        "section": "2. 교육 수강 조건",
+                        "status": "current",
+                        "title": "합성 교육·자격 규정",
+                        "text": "자재 투입 기초: 필수 자격 없음. 품질 기록 기초: SAFE-BASE 필수. 설비 점검 기초: SAFE-BASE와 EQUIP-BASE 필수. 교육계획 확정은 이수나 자격 취득을 의미하지 않는다.",
+                        "keywords": [
+                          "교육",
+                          "자격",
+                          "안전"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-LOAD-1",
+                        "key": "COURSE-LOAD",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 자재 투입 기초 과정",
+                        "text": "자재 투입 기초 과정은 라벨 대조, 투입 순서, 투입 기록 실습으로 구성된다. 교육 시간 2시간. 선수 자격 없음.",
+                        "courseId": "C-LOAD",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-QUALITY-1",
+                        "key": "COURSE-QUALITY",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 품질 기록 기초 과정",
+                        "text": "품질 기록 기초 과정은 검사 기준값 대조와 불일치 기록 실습으로 구성된다. 교육 시간 3시간. SAFE-BASE 필수.",
+                        "courseId": "C-QUALITY",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-MAINT-1",
+                        "key": "COURSE-MAINT",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 설비 점검 기초 과정",
+                        "text": "설비 점검 기초 과정은 설비 정지 확인과 점검표 작성 실습으로 구성된다. 교육 시간 4시간. SAFE-BASE와 EQUIP-BASE 필수.",
+                        "courseId": "C-MAINT",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "SOP-LOAD-2-CONFLICT",
+                        "key": "SOP-LOAD",
+                        "version": "합성 충돌 버전",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      }
+                    ],
+                    "evidence": [
+                      {
+                        "id": "SOP-LOAD-2",
+                        "key": "SOP-LOAD",
+                        "version": "2.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "SOP-QUALITY-1",
+                        "key": "SOP-QUALITY",
+                        "version": "1.0",
+                        "section": "4. 검사 기록",
+                        "status": "current",
+                        "title": "합성 품질 기록 SOP",
+                        "text": "검사 기준값과 실제 측정값을 구분하고 불일치를 기록한다. 품질 기록 교육은 기초 안전 확인 자격을 보유한 작업자에게 계획할 수 있다.",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "SOP-MAINT-1",
+                        "key": "SOP-MAINT",
+                        "version": "1.0",
+                        "section": "2. 정지 후 점검",
+                        "status": "current",
+                        "title": "합성 설비 점검 SOP",
+                        "text": "설비 점검 교육은 기초 안전 확인 자격과 설비 기초 자격을 보유한 작업자에게 계획할 수 있다. 교육계획 저장은 점검 작업 권한을 부여하지 않는다.",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "QUAL-1",
+                        "key": "QUAL",
+                        "version": "1.0",
+                        "section": "2. 교육 수강 조건",
+                        "status": "current",
+                        "title": "합성 교육·자격 규정",
+                        "text": "자재 투입 기초: 필수 자격 없음. 품질 기록 기초: SAFE-BASE 필수. 설비 점검 기초: SAFE-BASE와 EQUIP-BASE 필수. 교육계획 확정은 이수나 자격 취득을 의미하지 않는다.",
+                        "keywords": [
+                          "교육",
+                          "자격",
+                          "안전"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-LOAD-1",
+                        "key": "COURSE-LOAD",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 자재 투입 기초 과정",
+                        "text": "자재 투입 기초 과정은 라벨 대조, 투입 순서, 투입 기록 실습으로 구성된다. 교육 시간 2시간. 선수 자격 없음.",
+                        "courseId": "C-LOAD",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-QUALITY-1",
+                        "key": "COURSE-QUALITY",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 품질 기록 기초 과정",
+                        "text": "품질 기록 기초 과정은 검사 기준값 대조와 불일치 기록 실습으로 구성된다. 교육 시간 3시간. SAFE-BASE 필수.",
+                        "courseId": "C-QUALITY",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-MAINT-1",
+                        "key": "COURSE-MAINT",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 설비 점검 기초 과정",
+                        "text": "설비 점검 기초 과정은 설비 정지 확인과 점검표 작성 실습으로 구성된다. 교육 시간 4시간. SAFE-BASE와 EQUIP-BASE 필수.",
+                        "courseId": "C-MAINT",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "SOP-LOAD-2-CONFLICT",
+                        "key": "SOP-LOAD",
+                        "version": "합성 충돌 버전",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      }
+                    ],
+                    "excludedOld": [
+                      {
+                        "id": "SOP-LOAD-1",
+                        "key": "SOP-LOAD",
+                        "version": "1.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "superseded",
+                        "title": "합성 자재 투입 SOP 구버전",
+                        "text": "폐기 버전. 현재 교육계획의 근거로 사용하지 않는다.",
+                        "keywords": [
+                          "자재",
+                          "투입"
+                        ]
+                      }
+                    ],
+                    "currentSimulation": null,
+                    "boundary": "모든 문서와 인력은 합성 데모 자료이며 원익의 실제 SOP, 교육과정, 인사정보가 아닙니다.",
+                    "llmStatus": "not_called",
+                    "llmMs": 0,
+                    "decision": null,
+                    "rules": {
+                      "qualifications": [],
+                      "completedCourses": [],
+                      "eligibleCourseIds": [
+                        "C-LOAD"
+                      ],
+                      "effectsOnProduction": "none",
+                      "completionIsQualification": false
+                    },
+                    "state": "blocked",
+                    "code": "POLICY_CONFLICT",
+                    "message": "현행 문서가 충돌합니다. 자료 담당자 검토가 필요합니다.",
+                    "proposal": null
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "승인 대기 대상": [
+        {
+          "startTime": 1791592464525,
+          "executionIndex": 2,
+          "source": [
+            {
+              "previousNode": "교육 요청 검토",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 3,
+          "executionStatus": "success",
+          "data": {
+            "main": [
+              [],
+              [
+                {
+                  "json": {
+                    "requestId": "33e777f8-0ffc-4950-8a8d-9b84dde3295e",
+                    "selectedWorkerId": "SYN-101",
+                    "query": "자재 투입 교육을 계획해 주세요.",
+                    "policyScope": "conflict",
+                    "mode": "llm",
+                    "selectionMode": "llm",
+                    "modelId": null,
+                    "worker": {
+                      "workerId": "SYN-101",
+                      "displayName": "합성 작업자 A",
+                      "role": "자재 투입",
+                      "qualifications": [],
+                      "completedCourses": [],
+                      "source": "fixtures/learning-roster.csv",
+                      "synthetic": true
+                    },
+                    "synthetic": true,
+                    "retrieval": "all-current-documents",
+                    "retrievedEvidence": [
+                      {
+                        "id": "SOP-LOAD-2",
+                        "key": "SOP-LOAD",
+                        "version": "2.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "SOP-QUALITY-1",
+                        "key": "SOP-QUALITY",
+                        "version": "1.0",
+                        "section": "4. 검사 기록",
+                        "status": "current",
+                        "title": "합성 품질 기록 SOP",
+                        "text": "검사 기준값과 실제 측정값을 구분하고 불일치를 기록한다. 품질 기록 교육은 기초 안전 확인 자격을 보유한 작업자에게 계획할 수 있다.",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "SOP-MAINT-1",
+                        "key": "SOP-MAINT",
+                        "version": "1.0",
+                        "section": "2. 정지 후 점검",
+                        "status": "current",
+                        "title": "합성 설비 점검 SOP",
+                        "text": "설비 점검 교육은 기초 안전 확인 자격과 설비 기초 자격을 보유한 작업자에게 계획할 수 있다. 교육계획 저장은 점검 작업 권한을 부여하지 않는다.",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "QUAL-1",
+                        "key": "QUAL",
+                        "version": "1.0",
+                        "section": "2. 교육 수강 조건",
+                        "status": "current",
+                        "title": "합성 교육·자격 규정",
+                        "text": "자재 투입 기초: 필수 자격 없음. 품질 기록 기초: SAFE-BASE 필수. 설비 점검 기초: SAFE-BASE와 EQUIP-BASE 필수. 교육계획 확정은 이수나 자격 취득을 의미하지 않는다.",
+                        "keywords": [
+                          "교육",
+                          "자격",
+                          "안전"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-LOAD-1",
+                        "key": "COURSE-LOAD",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 자재 투입 기초 과정",
+                        "text": "자재 투입 기초 과정은 라벨 대조, 투입 순서, 투입 기록 실습으로 구성된다. 교육 시간 2시간. 선수 자격 없음.",
+                        "courseId": "C-LOAD",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-QUALITY-1",
+                        "key": "COURSE-QUALITY",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 품질 기록 기초 과정",
+                        "text": "품질 기록 기초 과정은 검사 기준값 대조와 불일치 기록 실습으로 구성된다. 교육 시간 3시간. SAFE-BASE 필수.",
+                        "courseId": "C-QUALITY",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-MAINT-1",
+                        "key": "COURSE-MAINT",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 설비 점검 기초 과정",
+                        "text": "설비 점검 기초 과정은 설비 정지 확인과 점검표 작성 실습으로 구성된다. 교육 시간 4시간. SAFE-BASE와 EQUIP-BASE 필수.",
+                        "courseId": "C-MAINT",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "SOP-LOAD-2-CONFLICT",
+                        "key": "SOP-LOAD",
+                        "version": "합성 충돌 버전",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      }
+                    ],
+                    "evidence": [
+                      {
+                        "id": "SOP-LOAD-2",
+                        "key": "SOP-LOAD",
+                        "version": "2.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "SOP-QUALITY-1",
+                        "key": "SOP-QUALITY",
+                        "version": "1.0",
+                        "section": "4. 검사 기록",
+                        "status": "current",
+                        "title": "합성 품질 기록 SOP",
+                        "text": "검사 기준값과 실제 측정값을 구분하고 불일치를 기록한다. 품질 기록 교육은 기초 안전 확인 자격을 보유한 작업자에게 계획할 수 있다.",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "SOP-MAINT-1",
+                        "key": "SOP-MAINT",
+                        "version": "1.0",
+                        "section": "2. 정지 후 점검",
+                        "status": "current",
+                        "title": "합성 설비 점검 SOP",
+                        "text": "설비 점검 교육은 기초 안전 확인 자격과 설비 기초 자격을 보유한 작업자에게 계획할 수 있다. 교육계획 저장은 점검 작업 권한을 부여하지 않는다.",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "QUAL-1",
+                        "key": "QUAL",
+                        "version": "1.0",
+                        "section": "2. 교육 수강 조건",
+                        "status": "current",
+                        "title": "합성 교육·자격 규정",
+                        "text": "자재 투입 기초: 필수 자격 없음. 품질 기록 기초: SAFE-BASE 필수. 설비 점검 기초: SAFE-BASE와 EQUIP-BASE 필수. 교육계획 확정은 이수나 자격 취득을 의미하지 않는다.",
+                        "keywords": [
+                          "교육",
+                          "자격",
+                          "안전"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-LOAD-1",
+                        "key": "COURSE-LOAD",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 자재 투입 기초 과정",
+                        "text": "자재 투입 기초 과정은 라벨 대조, 투입 순서, 투입 기록 실습으로 구성된다. 교육 시간 2시간. 선수 자격 없음.",
+                        "courseId": "C-LOAD",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-QUALITY-1",
+                        "key": "COURSE-QUALITY",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 품질 기록 기초 과정",
+                        "text": "품질 기록 기초 과정은 검사 기준값 대조와 불일치 기록 실습으로 구성된다. 교육 시간 3시간. SAFE-BASE 필수.",
+                        "courseId": "C-QUALITY",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-MAINT-1",
+                        "key": "COURSE-MAINT",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 설비 점검 기초 과정",
+                        "text": "설비 점검 기초 과정은 설비 정지 확인과 점검표 작성 실습으로 구성된다. 교육 시간 4시간. SAFE-BASE와 EQUIP-BASE 필수.",
+                        "courseId": "C-MAINT",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "SOP-LOAD-2-CONFLICT",
+                        "key": "SOP-LOAD",
+                        "version": "합성 충돌 버전",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      }
+                    ],
+                    "excludedOld": [
+                      {
+                        "id": "SOP-LOAD-1",
+                        "key": "SOP-LOAD",
+                        "version": "1.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "superseded",
+                        "title": "합성 자재 투입 SOP 구버전",
+                        "text": "폐기 버전. 현재 교육계획의 근거로 사용하지 않는다.",
+                        "keywords": [
+                          "자재",
+                          "투입"
+                        ]
+                      }
+                    ],
+                    "currentSimulation": null,
+                    "boundary": "모든 문서와 인력은 합성 데모 자료이며 원익의 실제 SOP, 교육과정, 인사정보가 아닙니다.",
+                    "llmStatus": "not_called",
+                    "llmMs": 0,
+                    "decision": null,
+                    "rules": {
+                      "qualifications": [],
+                      "completedCourses": [],
+                      "eligibleCourseIds": [
+                        "C-LOAD"
+                      ],
+                      "effectsOnProduction": "none",
+                      "completionIsQualification": false
+                    },
+                    "state": "blocked",
+                    "code": "POLICY_CONFLICT",
+                    "message": "현행 문서가 충돌합니다. 자료 담당자 검토가 필요합니다.",
+                    "proposal": null
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "차단 결과": [
+        {
+          "startTime": 1791592464529,
+          "executionIndex": 3,
+          "source": [
+            {
+              "previousNode": "승인 대기 대상",
+              "previousNodeOutput": 1,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 0,
+          "executionStatus": "success",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "requestId": "33e777f8-0ffc-4950-8a8d-9b84dde3295e",
+                    "selectedWorkerId": "SYN-101",
+                    "query": "자재 투입 교육을 계획해 주세요.",
+                    "policyScope": "conflict",
+                    "mode": "llm",
+                    "selectionMode": "llm",
+                    "modelId": null,
+                    "worker": {
+                      "workerId": "SYN-101",
+                      "displayName": "합성 작업자 A",
+                      "role": "자재 투입",
+                      "qualifications": [],
+                      "completedCourses": [],
+                      "source": "fixtures/learning-roster.csv",
+                      "synthetic": true
+                    },
+                    "synthetic": true,
+                    "retrieval": "all-current-documents",
+                    "retrievedEvidence": [
+                      {
+                        "id": "SOP-LOAD-2",
+                        "key": "SOP-LOAD",
+                        "version": "2.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "SOP-QUALITY-1",
+                        "key": "SOP-QUALITY",
+                        "version": "1.0",
+                        "section": "4. 검사 기록",
+                        "status": "current",
+                        "title": "합성 품질 기록 SOP",
+                        "text": "검사 기준값과 실제 측정값을 구분하고 불일치를 기록한다. 품질 기록 교육은 기초 안전 확인 자격을 보유한 작업자에게 계획할 수 있다.",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "SOP-MAINT-1",
+                        "key": "SOP-MAINT",
+                        "version": "1.0",
+                        "section": "2. 정지 후 점검",
+                        "status": "current",
+                        "title": "합성 설비 점검 SOP",
+                        "text": "설비 점검 교육은 기초 안전 확인 자격과 설비 기초 자격을 보유한 작업자에게 계획할 수 있다. 교육계획 저장은 점검 작업 권한을 부여하지 않는다.",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "QUAL-1",
+                        "key": "QUAL",
+                        "version": "1.0",
+                        "section": "2. 교육 수강 조건",
+                        "status": "current",
+                        "title": "합성 교육·자격 규정",
+                        "text": "자재 투입 기초: 필수 자격 없음. 품질 기록 기초: SAFE-BASE 필수. 설비 점검 기초: SAFE-BASE와 EQUIP-BASE 필수. 교육계획 확정은 이수나 자격 취득을 의미하지 않는다.",
+                        "keywords": [
+                          "교육",
+                          "자격",
+                          "안전"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-LOAD-1",
+                        "key": "COURSE-LOAD",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 자재 투입 기초 과정",
+                        "text": "자재 투입 기초 과정은 라벨 대조, 투입 순서, 투입 기록 실습으로 구성된다. 교육 시간 2시간. 선수 자격 없음.",
+                        "courseId": "C-LOAD",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-QUALITY-1",
+                        "key": "COURSE-QUALITY",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 품질 기록 기초 과정",
+                        "text": "품질 기록 기초 과정은 검사 기준값 대조와 불일치 기록 실습으로 구성된다. 교육 시간 3시간. SAFE-BASE 필수.",
+                        "courseId": "C-QUALITY",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-MAINT-1",
+                        "key": "COURSE-MAINT",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 설비 점검 기초 과정",
+                        "text": "설비 점검 기초 과정은 설비 정지 확인과 점검표 작성 실습으로 구성된다. 교육 시간 4시간. SAFE-BASE와 EQUIP-BASE 필수.",
+                        "courseId": "C-MAINT",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "SOP-LOAD-2-CONFLICT",
+                        "key": "SOP-LOAD",
+                        "version": "합성 충돌 버전",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      }
+                    ],
+                    "evidence": [
+                      {
+                        "id": "SOP-LOAD-2",
+                        "key": "SOP-LOAD",
+                        "version": "2.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "SOP-QUALITY-1",
+                        "key": "SOP-QUALITY",
+                        "version": "1.0",
+                        "section": "4. 검사 기록",
+                        "status": "current",
+                        "title": "합성 품질 기록 SOP",
+                        "text": "검사 기준값과 실제 측정값을 구분하고 불일치를 기록한다. 품질 기록 교육은 기초 안전 확인 자격을 보유한 작업자에게 계획할 수 있다.",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "SOP-MAINT-1",
+                        "key": "SOP-MAINT",
+                        "version": "1.0",
+                        "section": "2. 정지 후 점검",
+                        "status": "current",
+                        "title": "합성 설비 점검 SOP",
+                        "text": "설비 점검 교육은 기초 안전 확인 자격과 설비 기초 자격을 보유한 작업자에게 계획할 수 있다. 교육계획 저장은 점검 작업 권한을 부여하지 않는다.",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "QUAL-1",
+                        "key": "QUAL",
+                        "version": "1.0",
+                        "section": "2. 교육 수강 조건",
+                        "status": "current",
+                        "title": "합성 교육·자격 규정",
+                        "text": "자재 투입 기초: 필수 자격 없음. 품질 기록 기초: SAFE-BASE 필수. 설비 점검 기초: SAFE-BASE와 EQUIP-BASE 필수. 교육계획 확정은 이수나 자격 취득을 의미하지 않는다.",
+                        "keywords": [
+                          "교육",
+                          "자격",
+                          "안전"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-LOAD-1",
+                        "key": "COURSE-LOAD",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 자재 투입 기초 과정",
+                        "text": "자재 투입 기초 과정은 라벨 대조, 투입 순서, 투입 기록 실습으로 구성된다. 교육 시간 2시간. 선수 자격 없음.",
+                        "courseId": "C-LOAD",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-QUALITY-1",
+                        "key": "COURSE-QUALITY",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 품질 기록 기초 과정",
+                        "text": "품질 기록 기초 과정은 검사 기준값 대조와 불일치 기록 실습으로 구성된다. 교육 시간 3시간. SAFE-BASE 필수.",
+                        "courseId": "C-QUALITY",
+                        "keywords": [
+                          "품질",
+                          "검사",
+                          "기록",
+                          "측정"
+                        ]
+                      },
+                      {
+                        "id": "COURSE-MAINT-1",
+                        "key": "COURSE-MAINT",
+                        "version": "1.0",
+                        "section": "1. 과정 정의",
+                        "status": "current",
+                        "title": "합성 설비 점검 기초 과정",
+                        "text": "설비 점검 기초 과정은 설비 정지 확인과 점검표 작성 실습으로 구성된다. 교육 시간 4시간. SAFE-BASE와 EQUIP-BASE 필수.",
+                        "courseId": "C-MAINT",
+                        "keywords": [
+                          "설비",
+                          "점검",
+                          "정지"
+                        ]
+                      },
+                      {
+                        "id": "SOP-LOAD-2-CONFLICT",
+                        "key": "SOP-LOAD",
+                        "version": "합성 충돌 버전",
+                        "section": "3. 작업 전 점검",
+                        "status": "current",
+                        "title": "합성 자재 투입 SOP",
+                        "text": "자재 투입 작업 전 설비 안전 확인, 자재 라벨 확인, 투입 기록을 점검한다. 미숙련 작업자는 자재 투입 기초 교육을 계획한다.",
+                        "keywords": [
+                          "자재",
+                          "투입",
+                          "라벨"
+                        ]
+                      }
+                    ],
+                    "excludedOld": [
+                      {
+                        "id": "SOP-LOAD-1",
+                        "key": "SOP-LOAD",
+                        "version": "1.0",
+                        "section": "3. 작업 전 점검",
+                        "status": "superseded",
+                        "title": "합성 자재 투입 SOP 구버전",
+                        "text": "폐기 버전. 현재 교육계획의 근거로 사용하지 않는다.",
+                        "keywords": [
+                          "자재",
+                          "투입"
+                        ]
+                      }
+                    ],
+                    "currentSimulation": null,
+                    "boundary": "모든 문서와 인력은 합성 데모 자료이며 원익의 실제 SOP, 교육과정, 인사정보가 아닙니다.",
+                    "llmStatus": "not_called",
+                    "llmMs": 0,
+                    "decision": null,
+                    "rules": {
+                      "qualifications": [],
+                      "completedCourses": [],
+                      "eligibleCourseIds": [
+                        "C-LOAD"
+                      ],
+                      "effectsOnProduction": "none",
+                      "completionIsQualification": false
+                    },
+                    "state": "blocked",
+                    "code": "POLICY_CONFLICT",
+                    "message": "현행 문서가 충돌합니다. 자료 담당자 검토가 필요합니다.",
+                    "proposal": null
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "lastNodeExecuted": "차단 결과"
+  },
+  "executionData": {
+    "contextData": {},
+    "nodeExecutionStack": [],
+    "metadata": {},
+    "waitingExecution": {},
+    "waitingExecutionSource": {},
+    "runtimeData": {
+      "version": 1,
+      "establishedAt": 1791592464470,
+      "source": "webhook",
+      "triggerNode": {
+        "name": "합성 요청 접수",
+        "type": "n8n-nodes-base.webhook"
+      },
+      "redaction": {
+        "version": 2,
+        "production": false,
+        "manual": false
+      }
+    }
+  },
+  "resumeToken": "e46abe7614779cdbc6a5c36cb18279a59a7c1f6db273d82853205eccb7c6c491"
+}
