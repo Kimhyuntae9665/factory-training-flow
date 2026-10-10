@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-10",
+  "skill": "i-am-not-ai",
+  "genre": "report",
+  "route": "light",
+  "directComparison": "45 paragraphs; normalized body identical to final editorial draft",
+  "additionalHumanizationChangeRate": 0.0,
+  "gateExitCode": 0,
+  "numbersDropped": [],
+  "modalityLost": [],
+  "scope": "Style review of revised portfolio prose, separate from editorial changes against previous v3. No detection or authorship guarantee."
+}

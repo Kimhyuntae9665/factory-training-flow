@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-10",
+  "scope": "Editorial/layout/link refinement of v3; three pages; no application code changes or fresh model/n8n/functional test runs",
+  "portfolio": {
+    "pages": 3,
+    "sha256": "4b6a18a977c646e4bcd33142283b655b04ed8856566b22949da987ca6b39ff70",
+    "copiesIdentical": true,
+    "page3ContentPreserved": true,
+    "jobConnectionAndOfficialRepoLinksOnEveryPage": true,
+    "textWithinPageBounds": true,
+    "visualReview": "all three pages at overview and original 1280x720 resolution; final-review.md"
+  },
+  "screenshots": {
+    "originalThreeCapturesBytePreserved": true,
+    "oneActualInputCaptureAdded": true,
+    "newCaptureState": "model stopped; E07 input only; no new review or approval",
+    "individualOuterBorders": 4,
+    "regionRectanglesAndLeaders": 9
+  },
+  "localLinks": {
+    "checked": 108,
+    "missing": 0,
+    "fixed": "wonik-learning-lens/docs/reuse-and-scope.md -> ../portfolio/김현태_원익홀딩스_LearningLens_v3.pdf"
+  },
+  "evidence": {
+    "allOriginalProofFilesBytePreserved": 28,
+    "fourProvenanceHashesMatch": true,
+    "historicalComparisonRows": 40,
+    "historicalRulesCorrect": 12,
+    "historicalLlmCorrect": 15,
+    "historicalModelCalls": 18,
+    "historicalMedianMs": 21952,
+    "historicalN8nSuccess": 3,
+    "historicalFunctionalTests": 56,
+    "rerunThisRevision": false
+  },
+  "publicationScan": {
+    "changedFilesChecked": 39,
+    "knownSensitivePatternsFound": 0,
+    "privateRuntimeFilesFound": 0,
+    "stagedProofBytesChecked": true
+  },
+  "copyReview": {
+    "route": "light",
+    "additionalHumanizationChangeRate": 0.0,
+    "gateExitCode": 0
+  },
+  "archive": "docs/archive/learning-lens-v3-before-hr-edit-20261010"
+}

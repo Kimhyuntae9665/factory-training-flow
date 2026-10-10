@@ -20,9 +20,18 @@
       "source": "actual local browser full-page screenshot",
       "date": "2026-10-10",
       "edited": false
+    },
+    {
+      "file": "education-request-full.jpg",
+      "sha256": "60ed233f9db4ed53750e41207edaec70f730930638bc4fcdb1c1ff7d161875fe",
+      "source": "actual local browser full-page screenshot after editing education request input",
+      "date": "2026-10-10",
+      "edited": false,
+      "state": "SYN-101 E07 input; local model stopped; no new review or approval; previous stored ledger unchanged"
     }
   ],
   "portfolio": "docs/portfolio.pdf uses cropped source pixels, external borders and explanatory rectangles/leaders",
   "synthetic": true,
-  "recordViewer": "comparison and n8n screens read real stored execution records; no new LLM call when viewed; n8n screen is a custom viewer"
+  "recordViewer": "comparison and n8n screens read real stored execution records; no new LLM call when viewed; n8n screen is a custom viewer",
+  "revision": "HR explanation refinement 2026-10-10: original three captures retained; one actual input capture added"
 }

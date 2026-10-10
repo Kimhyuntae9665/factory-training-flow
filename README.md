@@ -4,11 +4,11 @@
 
 ## 최신 포트폴리오 v3 · 2026.10.10
 
-**① 공정 관찰과 교육 요청 ② 규칙과 로컬 LLM의 실제 비교 ③ n8n 입력·검토 대기·결정·출력 검증**을 3페이지로 설명합니다. 최신 구현은 [Wonik Learning Lens](wonik-learning-lens/README.md)입니다.
+**① 교육 담당자의 확인·기록 문제와 본인 제안 ② 규칙·LLM 비교에 따른 도입 조건 ③ n8n 입력·검토 대기·결정·출력 검증**을 총 3페이지로 설명합니다. 최신 구현은 [Wonik Learning Lens](wonik-learning-lens/README.md)입니다.
 
 [3페이지 PDF](docs/portfolio.pdf) · [1장](docs/portfolio-page-1.png) · [2장](docs/portfolio-page-2.png) · [3장](docs/portfolio-page-3.png) · [편집 자료와 검수](docs/portfolio-source-v3/README.md)
 
-![1장: 공정 관찰과 교육계획 검토](docs/portfolio-page-1.png)
+![1장: 교육 담당자의 업무 문제와 제안, 실제 교육 요청 입력](docs/portfolio-page-1.png)
 
 <details>
 <summary>2·3장 보기 — 규칙/LLM 비교와 실제 n8n 입출력</summary>
@@ -19,7 +19,15 @@
 
 </details>
 
-모든 주요 화면에 바깥 네 변 테두리, 설명 대상의 얇은 사각형과 연결선을 넣었습니다. 화면은 실제 실행 기록을 재열람한 캡처입니다. n8n 결과 화면은 **직접 만든 실행 증거 뷰어**이며 n8n 편집기 UI가 아닙니다.
+모든 주요 화면에 바깥 네 변 테두리, 설명 대상의 얇은 사각형과 연결선을 넣었습니다. 공정·비교·n8n 화면은 기존 실행 기록의 실제 캡처를 유지했습니다. 첫 장의 교육 요청은 이번 편집에서 실제 앱에 SYN-101/E07 요청을 입력해 새로 캡처했습니다. 당시 모델은 중지 상태로 새 검토·승인을 실행하지 않았습니다. n8n 결과 화면은 **직접 만든 실행 증거 뷰어**이며 n8n 편집기 UI가 아닙니다.
+
+## 교육 담당자의 업무 문제와 도입 판단
+
+**업무 문제는 가정입니다.** 과정·선수 자격·기이수·현행 규정 확인과 승인 근거 기록이 분리될 수 있다고 보고, 한 요청의 확인 → 담당자 검토 → 계획 기록을 연결하는 데모를 제안했습니다. 원익 교육 담당자의 실제 고충이나 현재 운영 시스템을 확인한 것으로 표현하지 않습니다.
+
+공정 화면은 요청의 맥락을 관찰하는 참고입니다. 생산 지표만으로 교육 필요성을 진단하거나 교육 효과를 계산하지 않습니다. 본인은 공정 관찰·로컬 LLM 검토·n8n 기록의 방향과 기능을 제안하고 화면·설명을 검토했으며, Codex가 구현·검증을 지원했습니다.
+
+**도입 판단:** 직접 표현은 두 방식 모두 6/6이어서 규칙을 우선 검토할 수 있습니다. LLM은 우회 표현의 검토 보조로 고려하되, 이번 CPU 환경의 약 22초 응답과 의미 선택 오답을 담당자가 확인할 수 있는 업무인지 판단해야 합니다. 이는 비교 결과에 따른 제안이며 자동 규칙/LLM 분기나 자동 승인은 구현하지 않았습니다.
 
 ## 실제 규칙·LLM 비교
 
@@ -66,13 +74,14 @@ Node.js 22 이상을 권장하며 앱은 npm 외부 의존성 설치 없이 실�
 
 포트폴리오의 실제 원본 전체 화면을 별도로 제공합니다. PDF에서는 화면을 확대·크롭하고 설명 주석을 추가했으며 원본 캡처를 보존했습니다.
 
+- [교육 요청 입력 최신 전체 화면](docs/screenshots/wonik-learning-lens-v3/education-request-full.jpg) — 모델 중지·새 검토 없음
 - [공정과 교육 요청 전체 화면](docs/screenshots/wonik-learning-lens-v3/factory-full.jpg)
 - [규칙·LLM 비교 기록 전체 화면](docs/screenshots/wonik-learning-lens-v3/comparison-full.jpg)
 - [n8n 실행 증거 전체 화면](docs/screenshots/wonik-learning-lens-v3/n8n-full.jpg)
 - [캡처 출처·SHA-256](docs/screenshots/wonik-learning-lens-v3/manifest.json) · [레이아웃 검수](docs/portfolio-source-v3/layout-validation.json) · [최종 시각 검수](docs/portfolio-source-v3/final-review.md)
 - [56/56 자동 회귀 로그](wonik-learning-lens/evidence/tests-20261010.txt) · [v3 통합 검수 기록](wonik-learning-lens/evidence/validation-v3.json)
 
-자동 테스트에는 mock 검증이 포함됩니다. 구조·입력 변경·저장·중복 결정·오류 처리를 확인하며 실제 모델 정확도나 n8n 실행 증거를 대신하지 않습니다. 공개용 복사본의 추가 검수는 [게시 검수 기록](docs/portfolio-source-v3/publication-validation.json)에 구분해 기록했습니다. 게시 과정에서 모델·n8n을 추가 실행한 것으로 합산하지 않습니다.
+자동 테스트에는 mock 검증이 포함됩니다. 구조·입력 변경·저장·중복 결정·오류 처리를 확인하며 실제 모델 정확도나 n8n 실행 증거를 대신하지 않습니다. 기존 공개용 복사본의 추가 검수는 [최초 v3 게시 기록](docs/archive/learning-lens-v3-before-hr-edit-20261010/source/publication-validation.json)에, 이번 설명·레이아웃·링크 변경 검수는 [설명 개선 기록](docs/portfolio-source-v3/revision-validation.json)에 구분했습니다. 이번 변경에서는 기능 테스트·모델·n8n을 다시 실행하지 않았습니다. 게시 과정에서 모델·n8n을 추가 실행한 것으로 합산하지 않습니다.
 
 ## 재사용·기여·한계
 
@@ -92,7 +101,7 @@ LG전자 AX Workflow 교육 중 평택 공장 견학에서 디지털 트윈 기�
 | 계산·저장 | 기존 공정 계산 / JSON 파일 원장·CSV | SimPy / SQLite |
 | n8n | 실제 승인·거절·충돌 3건 | 별도의 기존 실제 실행 3건 |
 
-**두 구현의 실행·모델·교육 효과 가정을 합산하지 않습니다.** [Learning Lens v2 PDF](docs/archive/learning-lens-v2-20261010/portfolio.pdf), [v2 편집 자료](docs/portfolio-source-v2/README.md), 이전 실행 기록·스크린샷을 보존했습니다.
+**두 구현의 실행·모델·교육 효과 가정을 합산하지 않습니다.** [설명 개선 전 v3 PDF](docs/archive/learning-lens-v3-before-hr-edit-20261010/portfolio.pdf)도 보존했습니다. [Learning Lens v2 PDF](docs/archive/learning-lens-v2-20261010/portfolio.pdf), [v2 편집 자료](docs/portfolio-source-v2/README.md), 이전 실행 기록·스크린샷을 보존했습니다.
 
 ---
 

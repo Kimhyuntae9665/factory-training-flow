@@ -4,7 +4,7 @@
     {
       "page": 1,
       "screenshot": "factory",
-      "source": "work\\wonik-portfolio-v3\\factory-full.jpg",
+      "source": "docs\\screenshots\\wonik-learning-lens-v3\\factory-full.jpg",
       "sha256": "800bb7e894a86b67c19fb1ef75869d9a3607293f76ed65f20d4e935594a88c79",
       "crop": [
         51,
@@ -17,6 +17,25 @@
         168,
         650,
         458.46867749419954
+      ],
+      "outerBorder": true
+    },
+    {
+      "page": 1,
+      "screenshot": "request",
+      "source": "docs\\screenshots\\wonik-learning-lens-v3\\education-request-full.jpg",
+      "sha256": "60ed233f9db4ed53750e41207edaec70f730930638bc4fcdb1c1ff7d161875fe",
+      "crop": [
+        91,
+        2210,
+        440,
+        177
+      ],
+      "placement": [
+        800,
+        397,
+        426,
+        171.36818181818182
       ],
       "outerBorder": true
     },
@@ -98,24 +117,24 @@
     },
     {
       "page": 1,
-      "target": "transport",
+      "target": "query",
       "rectangle": [
-        50.032482598607885,
-        587.2575406032482,
-        637.9350348027842,
-        34.68677494199536
+        810.65,
+        432.82272727272726,
+        404.7,
+        120.05454545454545
       ],
       "line": [
         [
-          687.9675174013921,
-          604.6009280742459
+          1215.35,
+          492.84999999999997
         ],
         [
-          726,
-          604.6009280742459
+          1258,
+          492.84999999999997
         ],
         [
-          726,
+          1258,
           635
         ],
         [
@@ -137,7 +156,7 @@
     {
       "page": 2,
       "screenshot": "comparison",
-      "source": "work\\wonik-portfolio-v3\\comparison-full.jpg",
+      "source": "docs\\screenshots\\wonik-learning-lens-v3\\comparison-full.jpg",
       "sha256": "338f8a07e81773dbb29878212d9f30ac6b374fb820d02c473fb060e695b14990",
       "crop": [
         38,
@@ -258,7 +277,7 @@
     {
       "page": 3,
       "screenshot": "n8n",
-      "source": "work\\wonik-portfolio-v3\\n8n-full.jpg",
+      "source": "docs\\screenshots\\wonik-learning-lens-v3\\n8n-full.jpg",
       "sha256": "1957859210b1d0b6277bfd087c57ee186ff354b2023850528841da8a00a8983f",
       "crop": [
         38,
@@ -476,7 +495,7 @@
   "connections": [
     {
       "page": 1,
-      "text": "공고의 교육 분야 AI 과제 발굴 업무를 위해, 공정 시뮬레이션과 교육계획 검토를 연결한 데모를 만들었습니다.",
+      "text": "공고의 교육 분야 AI 과제 발굴 업무를 위해, 과정·자격·현행 근거를 대조하고 승인 기록을 남기는 검토 데모를 만들었습니다.",
       "position": "title below"
     },
     {
